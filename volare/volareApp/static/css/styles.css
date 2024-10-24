@@ -4,6 +4,20 @@ body {
     background-color: #f0f0f0;
 }
 
+
+header {
+    background-color: #1a73e8; /* Color de fondo del encabezado */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+}
+
+header h1 {
+    margin: 0; /* Eliminar el margen del título */
+    font-size: 24px; /* Tamaño de fuente del título */
+    color: white; /* Color del texto del título */
+}
+
+
 h1 {
     text-align: center;
     margin-bottom: 40px;
@@ -23,14 +37,24 @@ h1 {
     text-align: center;
 }
 
-.airline-item img {
-    width: 250px; /* Ancho aumentado para los logos */
-    height: 250px; /* Altura aumentada para los logos */
-    object-fit: contain; /* Mantiene la relación de aspecto sin recortes */
-    margin-bottom: 10px;
+
+
+.airline-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease; 
 }
 
-.airline-item h2 {
-    font-size: 18px;
-    margin: 0;
+.airline-item:hover {
+    transform: scale(1.05); 
+}
+
+.airline-item img {
+    width: 250px; /* Ancho del logo */
+    height: 250px; /* Altura del logo */
+    object-fit: contain; /* Mantiene la relación de aspecto sin recortes */
+    margin-bottom: 10px;
 }
