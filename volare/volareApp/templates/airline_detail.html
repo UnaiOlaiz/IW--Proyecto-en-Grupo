@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ airline.name }}</title>
+</head>
+<body>
+    <header>
+        <h1>{{ airline.name }}</h1>
+    </header>
+    <div>
+        <p>{{ airline.description }}</p>
+    </div>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+</html>
