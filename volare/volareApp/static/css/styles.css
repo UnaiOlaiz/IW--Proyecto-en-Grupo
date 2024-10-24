@@ -1,0 +1,36 @@
+body {
+    font-family: Cambria, sans-serif;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.airlines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.airline-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.airline-item img {
+    width: 250px; /* Ancho aumentado para los logos */
+    height: 250px; /* Altura aumentada para los logos */
+    object-fit: contain; /* Mantiene la relación de aspecto sin recortes */
+    margin-bottom: 10px;
+}
+
+.airline-item h2 {
+    font-size: 18px;
+    margin: 0;
+}

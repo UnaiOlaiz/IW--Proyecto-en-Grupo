@@ -42,3 +42,5 @@ def index_Aerolineas_Pais(request, pais_id):
     aerolineas = pais.aerolinea_set.all()
     context = {'pais': pais, 'lista_aerolineas': aerolineas}
     return render(request, 'aerolineas_por_pais.html', context)
+
+
