@@ -91,3 +91,19 @@ a {
     border-radius: 5px; /* Bordes redondeados */
     transition: background 0.3s; /* Transición suave para el efecto hover */
 }
+
+
+/* Estilo del footer */
+footer {
+    background-color: #1a73e8; /* Fondo azul como el encabezado */
+    color: white; /* Texto en blanco */
+    padding: 15px 20px; /* Espaciado interno */
+    text-align: center; /* Centrado del texto */
+    margin-top: 20px; /* Espacio superior para separarlo del contenido */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave en la parte superior */
+}
+
+/* Asegura que el contenido principal y el footer no se superpongan */
+.content-container {
+    margin-bottom: 40px; /* Espacio inferior para que el contenido no colapse con el footer */
+}
