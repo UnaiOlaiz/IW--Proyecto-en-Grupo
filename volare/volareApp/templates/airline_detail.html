@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ airline.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
         <h1>{{ airline.name }}</h1>
     </header>
+	
+	<div class="content-container">
+	
     <div>
-        <p>{{ airline.description }}</p>
+        <p><strong>Descripción:</strong> {{ airline.description }}</p>
+        <p><strong>Origen:</strong> {{ airline.origin }}</p>
     </div>
-    <a href="{% url 'index' %}">Volver al inicio</a>
+
+    <div>
+        <h2>Aeropuertos donde opera:</h2>
+        <ul>
+            {% for airport in airline.airports %}
+                <li>{{ airport }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Flota:</h2>
+        <p><strong>Total de aviones:</strong> {{ airline.fleet.total_planes }}</p>
+        <p><strong>Tipos de aviones:</strong></p>
+        <ul>
+            {% for type in airline.fleet.types %}
+                <li>{{ type }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2>Servicios ofrecidos:</h2>
+        <ul>
+            {% for service in airline.services %}
+                <li>{{ service }}</li>
+            {% endfor %}
+        </ul>
+		</div>
+    </div>
+
+    <a href="{% url 'index' %}" id="back-button">Volver al inicio</a>
 </body>
 </html>

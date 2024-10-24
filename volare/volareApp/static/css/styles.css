@@ -1,10 +1,11 @@
+/* Estilo general del cuerpo */
 body {
     font-family: Cambria, sans-serif;
     padding: 20px;
     background-color: #f0f0f0;
 }
 
-
+/* Estilo del encabezado */
 header {
     background-color: #1a73e8; /* Color de fondo del encabezado */
     padding: 20px; /* Espaciado interno */
@@ -17,28 +18,20 @@ header h1 {
     color: white; /* Color del texto del título */
 }
 
-
+/* Estilo del título principal */
 h1 {
     text-align: center;
     margin-bottom: 40px;
 }
 
+/* Estilo de la cuadrícula de aerolíneas */
 .airlines-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 20px; /* Espacio entre los elementos de la cuadrícula */
 }
 
-.airline-item {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-
-
+/* Estilo de cada elemento de aerolínea */
 .airline-item {
     background-color: white;
     padding: 15px;
@@ -48,13 +41,53 @@ h1 {
     transition: transform 0.3s ease; 
 }
 
+/* Efecto al pasar el cursor sobre el elemento de aerolínea */
 .airline-item:hover {
     transform: scale(1.05); 
 }
 
+/* Estilo de las imágenes de los logos de las aerolíneas */
 .airline-item img {
     width: 250px; /* Ancho del logo */
     height: 250px; /* Altura del logo */
     object-fit: contain; /* Mantiene la relación de aspecto sin recortes */
     margin-bottom: 10px;
+}
+
+/* Estilo de párrafos en el detalle de aerolíneas */
+p {
+    margin: 10px 0; /* Espaciado vertical de los párrafos */
+}
+
+/* Enlaces */
+a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: white; /* Color del texto del botón */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.content-container {
+    background-color: white; /* Color de fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para el efecto de profundidad */
+    max-width: 1000px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Centrando el contenedor en la página */
+}
+
+
+
+
+#back-button {
+    display: inline-block; /* Para que se comporte como un botón */
+    margin-top: 20px; /* Espacio arriba del botón */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background: #1a73e8; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background 0.3s; /* Transición suave para el efecto hover */
 }
