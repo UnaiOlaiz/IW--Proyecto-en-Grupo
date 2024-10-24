@@ -166,6 +166,40 @@
             <h3>Emirates</h3>
         </div>
     </div>
+	
+	
+	    
+	<h1>Paises</h1>
+<div class="country-grid">
+    <div class="country-item">
+	
+	<a href="{% url 'country_detail' 'spain' %}">
+	
+        <img src="{% static 'img/españa.png' %}" alt="España">
+		</a>
+        <h3>España</h3>
+    </div>
+    <div class="country-item">
+	
+		<a href="{% url 'country_detail' 'england' %}">
+
+        <img src="{% static 'img/inglaterra.png' %}" alt="Inglaterra">
+		</a>
+        <h3>Inglaterra</h3>
+    </div>
+    <div class="country-item">
+			<a href="{% url 'country_detail' 'germany' %}">
+
+        <img src="{% static 'img/alemania.png' %}" alt="Alemania">
+		</a>
+        <h3>Alemania</h3>
+    </div>
+    <!-- Añade más países según sea necesario -->
+</div>
+
+
+	
+	
 
     <!-- Footer -->
     <footer>

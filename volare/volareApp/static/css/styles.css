@@ -54,6 +54,50 @@ h1 {
     margin-bottom: 10px;
 }
 
+
+
+/* Ajusta la cuadrícula para mostrar las imágenes más grandes */
+.country-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Espacio entre los elementos de la cuadrícula */
+}
+
+/* Escala al pasar el cursor */
+.country-item:hover {
+    transform: scale(1.05); 
+}
+
+/* Estilo de los elementos del país */
+.country-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: 450px; /* Fija la altura del contenedor, suficiente para las imágenes grandes */
+    overflow: hidden; /* Evita que la imagen exceda el contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de las imágenes de los países */
+.country-item img {
+    width: 550px; /* Ancho fijo para todas las imágenes */
+    height: 350px; /* Altura ajustada para que se vea bien dentro del contenedor */
+    object-fit: cover; /* Ajusta las imágenes para cubrir el área sin distorsión */
+    margin-bottom: 15px;
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+}
+
+
+
+
+
+
 /* Estilo de párrafos en el detalle de aerolíneas */
 p {
     margin: 10px 0; /* Espaciado vertical de los párrafos */

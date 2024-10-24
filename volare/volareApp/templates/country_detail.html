@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{{ country.name }}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{{ country.name }}</h1>
+    </header>
+    <div class="content-container"> <!-- Contenedor para el contenido -->
+        <main>
+            <section>
+                <h2>Información General</h2>
+                <p><strong>Capital:</strong> {{ country.capital }}</p>
+                <p>{{ country.description }}</p>
+            </section>
+
+            <section>
+                <h2>Aeropuertos</h2>
+                <ul>
+                    {% for aeropuerto in country.airports %}
+                        <li>{{ aeropuerto }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section>
+                <h2>Sitios Turísticos</h2>
+                <ul>
+                    {% for sitio in country.tourist_sites %}
+                        <li>{{ sitio }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section>
+                <h2>Información de Vuelos</h2>
+                <h3>Aerolíneas Principales</h3>
+                <ul>
+                    {% for aerolinea in country.flights_info.major_airlines %}
+                        <li>{{ aerolinea }}</li>
+                    {% endfor %}
+                </ul>
+                <h3>Destinos de Vuelos</h3>
+                <ul>
+                    {% for destino in country.flights_info.flight_destinations %}
+                        <li>{{ destino }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <a id="back-button" href="{% url 'index' %}">Volver a la lista de países</a>
+        </main>
+    </div> <!-- Cierre del contenedor -->
+   
+ <footer>
+        <p>&copy; 2024 Volare. Todos los derechos reservados.</p>
+        <p>Contacto: info@volare.com</p>
+    </footer>
+</body>
+</html>

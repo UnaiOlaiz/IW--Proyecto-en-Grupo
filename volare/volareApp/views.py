@@ -234,4 +234,114 @@ def airline_detail(request, airline_name):
 
         
         
+def country_detail(request, country_name): 
+    countries_data = {
+        'spain': {
+            'name': 'España',
+            'capital': 'Madrid',
+            'description': 'España es conocida por su rica historia, cultura vibrante y hermosas playas. Destinos turísticos destacados incluyen Barcelona, Sevilla y Valencia.',
+            'airports': ['Aeropuerto Adolfo Suárez Madrid-Barajas', 'Aeropuerto de Barcelona-El Prat'],
+            'tourist_sites': ['La Sagrada Familia', 'Alhambra', 'Museo del Prado'],
+            'flights_info': {
+                'major_airlines': ['Iberia', 'Vueling', 'Air Europa'],
+                'flight_destinations': ['Reino Unido', 'Francia', 'Italia'],
+            },
+        },
+        'england': {
+            'name': 'Inglaterra',
+            'capital': 'Londres',
+            'description': 'Inglaterra es famosa por su historia, cultura y arquitectura. Londres, la capital, alberga numerosos museos y sitios históricos.',
+            'airports': ['Aeropuerto de Heathrow', 'Aeropuerto de Gatwick'],
+            'tourist_sites': ['Torre de Londres', 'Puente de la Torre', 'British Museum'],
+            'flights_info': {
+                'major_airlines': ['British Airways', 'EasyJet', 'Ryanair'],
+                'flight_destinations': ['España', 'Francia', 'Alemania'],
+            },
+        },
+        'germany': {
+            'name': 'Alemania',
+            'capital': 'Berlín',
+            'description': 'Alemania es conocida por su rica historia, castillos y ciudades vibrantes. Berlín es famosa por su historia cultural y política.',
+            'airports': ['Aeropuerto de Berlín-Tegel', 'Aeropuerto de Múnich'],
+            'tourist_sites': ['Puerta de Brandeburgo', 'Castillo de Neuschwanstein', 'Murallas de Berlín'],
+            'flights_info': {
+                'major_airlines': ['Lufthansa', 'Germanwings', 'Eurowings'],
+                'flight_destinations': ['Francia', 'Reino Unido', 'Italia'],
+            },
+        },
+        'france': {
+            'name': 'Francia',
+            'capital': 'París',
+            'description': 'Francia es famosa por su arte, gastronomía y arquitectura. París, la capital, es un importante centro cultural y turístico.',
+            'airports': ['Aeropuerto Charles de Gaulle', 'Aeropuerto de Niza-Costa Azul'],
+            'tourist_sites': ['Torre Eiffel', 'Museo del Louvre', 'Palacio de Versalles'],
+            'flights_info': {
+                'major_airlines': ['Air France', 'EasyJet', 'Ryanair'],
+                'flight_destinations': ['Alemania', 'Reino Unido', 'España'],
+            },
+        },
+        'qatar': {
+            'name': 'Catar',
+            'capital': 'Doha',
+            'description': 'Catar es un país pequeño pero rico, conocido por su moderna arquitectura y su hospitalidad. Doha es el principal centro comercial y cultural.',
+            'airports': ['Aeropuerto Internacional Hamad'],
+            'tourist_sites': ['Museo de Arte Islámico', 'Corniche de Doha', 'Souq Waqif'],
+            'flights_info': {
+                'major_airlines': ['Qatar Airways'],
+                'flight_destinations': ['Emiratos Árabes Unidos', 'Bahréin', 'Arabia Saudita'],
+            },
+        },
+        'uae': {
+            'name': 'Emiratos Árabes Unidos',
+            'capital': 'Abu Dabi',
+            'description': 'Los Emiratos Árabes Unidos son famosos por sus lujosos rascacielos y destinos turísticos como Dubái y Abu Dabi.',
+            'airports': ['Aeropuerto Internacional de Dubái', 'Aeropuerto Internacional de Abu Dabi'],
+            'tourist_sites': ['Burj Khalifa', 'Palacio de los Emiratos', 'Desierto de Rub al-Jali'],
+            'flights_info': {
+                'major_airlines': ['Emirates', 'Etihad Airways'],
+                'flight_destinations': ['India', 'Reino Unido', 'Tailandia'],
+            },
+        },
+        'singapore': {
+            'name': 'Singapur',
+            'capital': 'Singapur',
+            'description': 'Singapur es una ciudad-estado conocida por su limpieza, seguridad y diversidad cultural. Es un importante centro financiero y de transporte en Asia.',
+            'airports': ['Aeropuerto Changi de Singapur'],
+            'tourist_sites': ['Gardens by the Bay', 'Marina Bay Sands', 'Sentosa'],
+            'flights_info': {
+                'major_airlines': ['Singapore Airlines', 'SilkAir'],
+                'flight_destinations': ['Malasia', 'Indonesia', 'Australia'],
+            },
+        },
+        'australia': {
+            'name': 'Australia',
+            'capital': 'Canberra',
+            'description': 'Australia es conocida por sus impresionantes paisajes, fauna única y ciudades vibrantes. Sydney y Melbourne son destinos populares.',
+            'airports': ['Aeropuerto de Sídney', 'Aeropuerto de Melbourne'],
+            'tourist_sites': ['Ópera de Sídney', 'Gran Barrera de Coral', 'Uluru'],
+            'flights_info': {
+                'major_airlines': ['Qantas', 'Virgin Australia'],
+                'flight_destinations': ['Nueva Zelanda', 'Estados Unidos', 'Japón'],
+            },
+        },
+        'united_states': {
+            'name': 'Estados Unidos',
+            'capital': 'Washington D.C.',
+            'description': 'Los Estados Unidos son un país diverso con una mezcla de culturas, paisajes y ciudades icónicas. Nueva York y Los Ángeles son solo algunas de las ciudades destacadas.',
+            'airports': ['Aeropuerto Internacional de Los Ángeles', 'Aeropuerto Internacional de O\'Hare'],
+            'tourist_sites': ['Estatua de la Libertad', 'Parque Nacional de Yellowstone', 'Disneyland'],
+            'flights_info': {
+                'major_airlines': ['American Airlines', 'Delta Airlines', 'United Airlines'],
+                'flight_destinations': ['Canadá', 'México', 'Europa'],
+            },
+        },
+    
+}
+    country = countries_data.get(country_name, None)
+
+    if country:
+        return render(request, 'country_detail.html', {'country': country})
+    else:
+        # Manejo de errores en caso de que el país no exista
+        return render(request, '404.html', status=404)
  
