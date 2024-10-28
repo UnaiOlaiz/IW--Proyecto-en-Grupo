@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de Países{% endblock %}
+
+{% block contenido %}
+    <h2>Lista de Países</h2>
+    <ul>
+        {% for pais in lista_paises %}
+            <li>
+                <a href="{% url 'show_pais' pais.id %}">{{ pais.nombre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

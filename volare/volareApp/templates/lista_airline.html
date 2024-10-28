@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Bienvenido a Volare{% endblock %}
+
+{% block contenido %}
+<h2>Aerolíneas Disponibles</h2>
+<ul>
+    {% for aerolinea in lista_aerolineas %}
+        <li>
+            <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %}Detalles de {{ aeropuerto.nombre }}{% endblock %}
+
+{% block contenido %}
+    <div class="airport-detail">
+        <h2>Detalles de {{ aeropuerto.nombre }}</h2>
+        <p><strong>Código IATA:</strong> {{ aeropuerto.codigo_iata }}</p>
+        <p><strong>Ubicación:</strong> {{ aeropuerto.ubicacion }}</p>
+        <p><strong>Descripción:</strong> {{ aeropuerto.descripcion }}</p>
+        
+        <h3>Aerolíneas asociadas:</h3>
+        <ul>
+            {% for aerolinea in aeropuerto.aerolineas.all %}
+                <li>
+                    <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
+                </li>
+            {% empty %}
+                <li>No hay aerolíneas asociadas a este aeropuerto.</li>
+            {% endfor %}
+        </ul>
+
+        <a id="back-button" href="{% url 'index_aeropuerto' %}">Volver a la lista de Aeropuertos</a>
+    </div>
+{% endblock %}
+

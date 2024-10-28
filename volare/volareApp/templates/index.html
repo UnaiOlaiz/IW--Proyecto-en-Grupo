@@ -1,33 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volare</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-	
-</head>
-<body>
-    <header>
-        <h1 style="color: white;">Bienvenido a Volare</h1>
-    </header>
+{% extends "base.html" %}
+
+{% block titulo %}Portada{% endblock %}
+
+{% block contenido %}
+
+<h2>Paises con sus aerolineas más importantes</h2>
+
+<ul>
+    {% for pais, aerolinea in pais_aerolineas.items %}
+        <li>
+            <strong>{{ pais.nombre }}</strong>: 
+            {% if aerolinea %}
+                <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a> (Fundada el {{ aerolinea.fundacion }})
+            {% else %}
+                Sin aerolíneas
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+
+
     <!-- Aerolíneas de España -->
      <h2>España</h2>
     <div class="airlines-grid">
         <div class="airline-item">
             <a href="{% url 'airline_detail' 'iberia' %}">
-                <img src="{% static 'img/iberia_logo.png' %}" alt="Iberia logo"></a>
                 <h3>Iberia</h3>
-            
-        </div>
-		 <div class="airline-item">
-		        <a href="{% url 'airline_detail' 'air_europa' %}">
-
-            <img src="{% static 'img/airEuropa_logo.png' %}" alt="Air Europa logo"> </a>
-            <h3>Air Europa</h3>
-			
-
+            </a>
         </div>
     </div>
     
@@ -36,19 +36,9 @@
     <h2>Inglaterra</h2>
     <div class="airlines-grid">
         <div class="airline-item">
-		            <a href="{% url 'airline_detail' 'british_airways' %}">
-
-            <img src="{% static 'img/british_airways_logo.png' %}" alt="British Airways logo">
-			</a>
-            <h3>British Airways</h3>
-		
-        </div>
-        <div class="airline-item">
-				<a href="{% url 'airline_detail' 'easyjet' %}">
-
-            <img src="{% static 'img/easyjet_logo.png' %}" alt="EasyJet logo"> 
-			</a>
-            <h3>EasyJet</h3>
+		    <a href="{% url 'airline_detail' 'british_airways' %}">
+                <h3>British Airways</h3>
+            </a>
         </div>
     </div>
 
@@ -57,16 +47,8 @@
     <div class="airlines-grid">
         <div class="airline-item">
 		    <a href="{% url 'airline_detail' 'lufthansa' %}">
-
-            <img src="{% static 'img/lufthansa_logo.png' %}" alt="Lufthansa logo">
-			</a>
-            <h3>Lufthansa</h3>
-        </div>
-        <div class="airline-item">
-		 <a href="{% url 'airline_detail' 'germanwings' %}">
-            <img src="{% static 'img/germanwings_logo.png' %}" alt="Germanwings logo">
-			</a>
-            <h3>Germanwings</h3>
+                <h3>Lufthansa</h3>
+            </a>
         </div>
     </div>
 
@@ -74,17 +56,9 @@
     <h2>Francia</h2>
     <div class="airlines-grid">
         <div class="airline-item">
-		<a href="{% url 'airline_detail' 'air_france' %}">
-            <img src="{% static 'img/air_france_logo.png' %}" alt="Air France logo">
-			</a>
-            <h3>Air France</h3>
-        </div>
-        <div class="airline-item">
-				<a href="{% url 'airline_detail' 'transavia' %}">
-
-            <img src="{% static 'img/transavia_logo.png' %}" alt="Transavia logo">
-			</a>
-            <h3>Transavia</h3>
+            <a href="{% url 'airline_detail' 'air_france' %}">
+                <h3>Air France</h3>
+            </a>
         </div>
     </div>
 
@@ -92,23 +66,9 @@
     <h2>Estados Unidos</h2>
     <div class="airlines-grid">
         <div class="airline-item">
-		<a href="{% url 'airline_detail' 'american_airlines' %}">
-            <img src="{% static 'img/american_airlines_logo.png' %}" alt="American Airlines logo">
-			</a>
-            <h3>American Airlines</h3>
-        </div>
-        <div class="airline-item">
-		<a href="{% url 'airline_detail' 'delta_airlines' %}">
-            <img src="{% static 'img/delta_airlines_logo.png' %}" alt="Delta Airlines logo">
-			</a>
-            <h3>Delta Airlines</h3>
-        </div>
-        <div class="airline-item">
-		<a href="{% url 'airline_detail' 'united_airlines' %}">
-		
-            <img src="{% static 'img/united_airlines_logo.png' %}" alt="United Airlines logo">
-		</a>
-            <h3>United Airlines</h3>
+            <a href="{% url 'airline_detail' 'american_airlines' %}">
+                <h3>American Airlines</h3>
+            </a>
         </div>
     </div>
 
@@ -118,17 +78,8 @@
         <div class="airline-item">
 				<a href="{% url 'airline_detail' 'qantas' %}">
 
-            <img src="{% static 'img/qantas_logo.png' %}" alt="Qantas logo">
 			</a>
             <h3>Qantas</h3>
-        </div>
-        <div class="airline-item">
-		
-		<a href="{% url 'airline_detail' 'virgin_australia' %}">
-
-            <img src="{% static 'img/virgin_australia_logo.png' %}" alt="Virgin Australia logo">
-		</a>
-            <h3>Virgin Australia</h3>
         </div>
     </div>
 
@@ -138,7 +89,6 @@
         <div class="airline-item">
 				<a href="{% url 'airline_detail' 'qatar_airways' %}">
 
-            <img src="{% static 'img/qatar_airways_logo.png' %}" alt="Qatar Airways logo">
 			</a>
             <h3>Qatar Airways</h3>
         </div>
@@ -149,7 +99,6 @@
     <div class="airlines-grid">
         <div class="airline-item">
 		<a href="{% url 'airline_detail' 'singapore_airlines' %}">
-            <img src="{% static 'img/singapore_airlines_logo.png' %}" alt="Singapore Airlines logo">
 			</a>
             <h3>Singapore Airlines</h3>
         </div>
@@ -161,50 +110,10 @@
         <div class="airline-item">
 				<a href="{% url 'airline_detail' 'emirates' %}">
 
-            <img src="{% static 'img/emirates_logo.png' %}" alt="Emirates logo">
 			</a>
             <h3>Emirates</h3>
         </div>
     </div>
-	
-	
-	    
-	<h1>Paises</h1>
-<div class="country-grid">
-    <div class="country-item">
-	
-	<a href="{% url 'country_detail' 'spain' %}">
-	
-        <img src="{% static 'img/españa.png' %}" alt="España">
-		</a>
-        <h3>España</h3>
-    </div>
-    <div class="country-item">
-	
-		<a href="{% url 'country_detail' 'england' %}">
 
-        <img src="{% static 'img/inglaterra.png' %}" alt="Inglaterra">
-		</a>
-        <h3>Inglaterra</h3>
-    </div>
-    <div class="country-item">
-			<a href="{% url 'country_detail' 'germany' %}">
+{% endblock %}
 
-        <img src="{% static 'img/alemania.png' %}" alt="Alemania">
-		</a>
-        <h3>Alemania</h3>
-    </div>
-    <!-- Añade más países según sea necesario -->
-</div>
-
-
-	
-	
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Volare. Todos los derechos reservados.</p>
-        <p>Contacto: info@volare.com</p>
-    </footer>
-</body>
-</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Bienvenido a Volare{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  
+	
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Volare</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Portada</a></li>
+                <li><a href="{% url 'index_paises' %}">Paises</a></li>
+                <li><a href="{% url 'index_aerolineas' %}">Aerolineas</a></li>
+                <li><a href="{% url 'index_aeropuerto' %}">Aeropuertos</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block contenido %}{% endblock %}
+
+    <footer>
+        <p>&copy; 2024 Volare. Todos los derechos reservados.</p>
+        <p>Contacto: info@volare.com</p>
+    </footer>
+</body>
+</html>

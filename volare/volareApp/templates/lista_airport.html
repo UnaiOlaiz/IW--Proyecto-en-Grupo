@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block titulo %}Aeropuertos en {{ pais.nombre }}{% endblock %}
+
+{% block contenido %}
+<h2>Aeropuertos en {{ pais.nombre }}</h2>
+<ul>
+    {% for aeropuerto in lista_aeropuertos %}
+        <li>
+            <a href="{% url 'show_aeropuerto' aeropuerto.id %}">{{ aeropuerto.nombre }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

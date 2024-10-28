@@ -1,47 +1,76 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 from .models import Pais, Aerolinea, Aeropuerto
 
+# obtiene aerolinea y pais
 def index(request):
-    aerolineas = get_list_or_404(Aerolinea.objects.order_by('nombre'))
-    context = {'lista_aerolineas': aerolineas}
+    
+    # Obtener todos los países
+    paises = get_list_or_404(Pais.objects.order_by('nombre'))
+    # Crear un diccionario para almacenar el país y su aerolínea más antigua
+    pais_aerolineas = {}
+    
+    for pais in paises:
+        # Obtener la aerolínea más antigua de cada país
+        aerolinea_antigua = pais.aerolinea_set.order_by('fundacion').first()
+        pais_aerolineas[pais] = aerolinea_antigua
+
+    context = {'pais_aerolineas': pais_aerolineas}
     return render(request, 'index.html', context)
 
+# lista de paises
 def index_Paises(request):
     paises = get_list_or_404(Pais.objects.order_by('nombre'))
     context = {'lista_paises': paises}
-    return render(request, 'paises.html', context)
+    return render(request, 'lista_pais.html', context)
 
+# detalles de pais usando ID
 def show_Pais(request, pais_id):
     pais = get_object_or_404(Pais, pk=pais_id)
     context = {'pais': pais}
-    return render(request, 'pais_detail.html', context)
+    return render(request, 'country_detail.html', context)
 
-def index_Aeropuerto(request, pais_id):
-    pais = get_object_or_404(Pais, pk=pais_id)
-    aeropuertos = pais.aeropuerto_set.all()
-    context = {'pais': pais, 'lista_aeropuertos': aeropuertos}
-    return render(request, 'aeropuertos.html', context)
+# lista de todos los aeropuertos
+def index_Aeropuerto(request):
+    aeropuertos = get_list_or_404(Aeropuerto.objects.order_by('nombre'))
+    context = {'lista_aeropuertos': aeropuertos}
+    return render(request, 'lista_airport.html', context)
 
+# detalles de aeropuerto usando ID
 def show_Aeropuerto(request, aeropuerto_id):
     aeropuerto = get_object_or_404(Aeropuerto, pk=aeropuerto_id)
     context = {'aeropuerto': aeropuerto}
-    return render(request, 'aeropuerto_detail.html', context)
+    return render(request, 'airport_detail.html', context)
 
+# lista aerolineas
 def index_Aerolineas(request):
     aerolineas = get_list_or_404(Aerolinea.objects.order_by('nombre'))
     context = {'lista_aerolineas': aerolineas}
-    return render(request, 'aerolineas.html', context)
+    return render(request, 'lista_airline.html', context)
 
+# detalles de aerolinea usando ID
 def show_Aerolinea(request, aerolinea_id):
     aerolinea = get_object_or_404(Aerolinea, pk=aerolinea_id)
     context = {'aerolinea': aerolinea}
-    return render(request, 'aerolinea_detail.html', context)
+    return render(request, 'airline_detail.html', context)
 
+# aerolineas relacionadas con pais especifico ??????
 def index_Aerolineas_Pais(request, pais_id):
     pais = get_object_or_404(Pais, pk=pais_id)
     aerolineas = pais.aerolinea_set.all()
     context = {'pais': pais, 'lista_aerolineas': aerolineas}
     return render(request, 'aerolineas_por_pais.html', context)
+
+# aeropuertos relacionados con pais especifico ???????
+def index_Aeropuerto_Pais(request, pais_id):
+    pais = get_object_or_404(Pais, pk=pais_id)
+    aeropuertos = pais.aeropuerto_set.all()
+    context = {'pais': pais, 'lista_aeropuertos': aeropuertos}
+    return render(request, 'aeropuertos.html', context)
+
+
+
+
+
 
 def airline_detail(request, airline_name):
 
