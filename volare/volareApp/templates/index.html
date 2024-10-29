@@ -15,7 +15,7 @@
                 <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a> (Fundada el {{ aerolinea.fundacion }})
                 
 				<img img class="imagen-pequena" alt="{{ aerolinea.imagen.name }}" src="{% static aerolinea.imagen.name %}" />
-				
+					
             {% else %}
                 Sin aerolíneas
             {% endif %}
