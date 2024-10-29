@@ -1,23 +1,24 @@
-{% load static %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>{{ country.name }}</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>{{ country.name }}</h1>
-    </header>
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Portada{% endblock %}
+
+{% block contenido %}
+
+        <h1>{{pais.name }}</h1>
+    
+
     <div class="content-container"> <!-- Contenedor para el contenido -->
-        <main>
+    
             <section>
                 <h2>Información General</h2>
-                <p><strong>Capital:</strong> {{ country.capital }}</p>
+                <p><strong>Capital:</strong> {{ pais.capital }}</p>
                 <p>{{ country.description }}</p>
+			
+			
+			
+			
+			
             </section>
 
             <section>
@@ -26,6 +27,10 @@
                     {% for aeropuerto in country.airports %}
                         <li>{{ aeropuerto }}</li>
                     {% endfor %}
+					
+					
+					
+					
                 </ul>
             </section>
 
@@ -55,12 +60,7 @@
             </section>
 
             <a id="back-button" href="{% url 'index_paises' %}">Volver a la lista de países</a>
-        </main>
+     
     </div> <!-- Cierre del contenedor -->
    
- <footer>
-        <p>&copy; 2024 Volare. Todos los derechos reservados.</p>
-        <p>Contacto: info@volare.com</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

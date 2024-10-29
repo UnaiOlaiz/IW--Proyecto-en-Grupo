@@ -1,10 +1,11 @@
-{% extends "base.html" %}
 
+{% extends "base.html" %}
+{% load static %}
 {% block titulo %}Portada{% endblock %}
 
 {% block contenido %}
 
-<h2>Paises con sus aerolineas más importantes</h2>
+<h2>Paises con sus aerolíneas más importantes</h2>
 
 <ul>
     {% for pais, aerolinea in pais_aerolineas.items %}
@@ -12,6 +13,9 @@
             <strong>{{ pais.nombre }}</strong>: 
             {% if aerolinea %}
                 <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a> (Fundada el {{ aerolinea.fundacion }})
+                
+				<img img class="imagen-pequena" alt="{{ aerolinea.imagen.name }}" src="{% static aerolinea.imagen.name %}" />
+				
             {% else %}
                 Sin aerolíneas
             {% endif %}
@@ -19,9 +23,16 @@
     {% endfor %}
 </ul>
 
+{% endblock %}
 
 
-    <!-- Aerolíneas de España -->
+
+
+
+
+
+
+<!--
      <h2>España</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -32,7 +43,6 @@
     </div>
     
 
-    <!-- Aerolíneas de Inglaterra -->
     <h2>Inglaterra</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -42,7 +52,6 @@
         </div>
     </div>
 
-    <!-- Aerolíneas de Alemania -->
     <h2>Alemania</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -52,7 +61,6 @@
         </div>
     </div>
 
-    <!-- Aerolíneas de Francia -->
     <h2>Francia</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -61,8 +69,6 @@
             </a>
         </div>
     </div>
-
-    <!-- Aerolíneas de Estados Unidos -->
     <h2>Estados Unidos</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -72,7 +78,6 @@
         </div>
     </div>
 
-    <!-- Aerolíneas de Australia -->
     <h2>Australia</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -82,8 +87,6 @@
             <h3>Qantas</h3>
         </div>
     </div>
-
-    <!-- Aerolíneas de Qatar -->
     <h2>Catar</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -94,7 +97,6 @@
         </div>
     </div>
 
-    <!-- Aerolíneas de Singapur -->
     <h2>Singapur</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -104,7 +106,6 @@
         </div>
     </div>
 
-    <!-- Aerolíneas de los Emiratos Árabes Unidos -->
     <h2>Emiratos Árabes Unidos</h2>
     <div class="airlines-grid">
         <div class="airline-item">
@@ -114,6 +115,4 @@
             <h3>Emirates</h3>
         </div>
     </div>
-
-{% endblock %}
-
+-->

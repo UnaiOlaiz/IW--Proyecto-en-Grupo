@@ -19,5 +19,4 @@ urlpatterns = [
     path('airline/<str:airline_name>/', views.airline_detail, name='airline_detail'),
     path('country/<str:country_name>/', views.country_detail, name='country_detail'),  
 
-
 ]

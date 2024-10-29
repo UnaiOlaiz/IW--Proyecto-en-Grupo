@@ -27,6 +27,8 @@ class Aerolinea(models.Model):
     aeropuertos = models.ManyToManyField(Aeropuerto)
     tlf = models.IntegerField()
     fundacion = models.DateField(null=True, blank=True)  
+    descripcion = models.TextField(default='Sin descripción')
+    flota = models.IntegerField(default=0)  
     imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
 
     
