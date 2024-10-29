@@ -5,9 +5,9 @@
 {% block contenido %}
     <div class="airport-detail">
         <h2>Detalles de {{ aeropuerto.nombre }}</h2>
-        <p><strong>Código IATA:</strong> {{ aeropuerto.codigo_iata }}</p>
-        <p><strong>Ubicación:</strong> {{ aeropuerto.ubicacion }}</p>
-        <p><strong>Descripción:</strong> {{ aeropuerto.descripcion }}</p>
+        <p><strong>Código IATA:</strong> {{ aeropuerto.codigo }}</p>
+        <p><strong>Ubicación:</strong> {{ aeropuerto.pais }}</p>
+        <p><strong>Teléfono:</strong> {{ aeropuerto.tlf }}</p>
         
         <h3>Aerolíneas asociadas:</h3>
         <ul>
@@ -23,4 +23,3 @@
         <a id="back-button" href="{% url 'index_aeropuerto' %}">Volver a la lista de Aeropuertos</a>
     </div>
 {% endblock %}
-

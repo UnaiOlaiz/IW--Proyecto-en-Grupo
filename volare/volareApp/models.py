@@ -3,8 +3,11 @@ from django.db import models
 # Create your models here.
 class Pais(models.Model):
     nombre = models.CharField(max_length=50)
+    capital = models.CharField(max_length=100, default="No especificado")
     codigo = models.CharField(max_length=3)
     imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+    descripcion = models.TextField(default='Sin descripción')
+
 
    
     def __str__(self):
@@ -24,7 +27,7 @@ class Aeropuerto(models.Model):
 class Aerolinea(models.Model):
     nombre = models.CharField(max_length=50)
     pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
-    aeropuertos = models.ManyToManyField(Aeropuerto)
+    aeropuertos = models.ManyToManyField(Aeropuerto, related_name='aerolineas')
     tlf = models.IntegerField()
     fundacion = models.DateField(null=True, blank=True)  
     descripcion = models.TextField(default='Sin descripción')

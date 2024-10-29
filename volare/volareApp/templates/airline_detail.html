@@ -1,63 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ airline.name }}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>{{ airline.name }}</h1>
-    </header>
-	
-	<div class="content-container">
-	
+{% extends "base.html" %}
+{% load static %}
+{% block titulo %}Detalles de la Aerolínea{% endblock %}
+
+{% block contenido %}
+
+
+    <h1>{{ airline.nombre }}</h1>
+
+
+<div class="content-container">
+
     <div>
-        <p><strong>Descripción:</strong> {{ airline.description }}</p>
-        <p><strong>Origen:</strong> {{ airline.origin }}</p>
+        <p><strong>Descripción:</strong> {{ airline.descripcion }}</p>
+        <p><strong>Origen:</strong> {{ airline.pais }}</p>
     </div>
 
     <div>
         <h2>Aeropuertos donde opera:</h2>
-        <ul>
-            {% for airport in airline.airports %}
-                <li>{{ airport }}</li>
-            {% endfor %}
-        </ul>
+      <ul>
+        {% for aeropuerto in airports %}  <!-- Accede a la lista de aeropuertos que has pasado en el contexto -->
+            <li>{{ aeropuerto.nombre }}</li>  <!-- Muestra el nombre del aeropuerto -->
+        {% empty %}
+            <li>No hay aeropuertos disponibles.</li>
+        {% endfor %}
+    </ul>
     </div>
 
     <div>
-        <h2>Flota:</h2>
-        <p><strong>Total de aviones:</strong> {{ airline.fleet.total_planes }}</p>
-        <p><strong>Tipos de aviones:</strong></p>
-        <ul>
-            {% for type in airline.fleet.types %}
-                <li>{{ type }}</li>
-            {% endfor %}
-        </ul>
+      <p>  <strong>Flota: </strong>{{ airline.flota }}</p>
+        
     </div>
 
-    <div>
-        <h2>Servicios ofrecidos:</h2>
-        <ul>
-            {% for service in airline.services %}
-                <li>{{ service }}</li>
-            {% endfor %}
-        </ul>
-		</div>
-    </div>
+</div>
 
-    <a href="{% url 'index_aerolineas' %}" id="back-button">Volver a la lista de Aerolineas</a>
+<a href="{% url 'index_aerolineas' %}" id="back-button">Volver a la lista de Aerolíneas</a>
 
- <footer>
-        <p>&copy; 2024 Volare. Todos los derechos reservados.</p>
-        <p>Contacto: info@volare.com</p>
-    </footer>
-
-</body>
-
-
-  
-</html>
+{% endblock %}
