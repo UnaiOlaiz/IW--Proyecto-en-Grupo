@@ -3,36 +3,33 @@
 {% block titulo %}Detalles de la Aerolínea{% endblock %}
 
 {% block contenido %}
+  <section class="about_section">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;"> <!-- Centra el contenido vertical y horizontalmente -->
 
+        <!-- Información de la aerolínea -->
+        <div class="detail-box detail_box_common col-lg-6 col-md-8 text-center">
+          <div class="heading_container heading_center">
+            <h2>{{ airline.nombre }}</h2> <!-- Nombre de la aerolínea -->
+          </div>
+          <p><strong>Descripción:</strong> {{ airline.descripcion }}</p>
+          <p><strong>Origen:</strong> {{ airline.pais }}</p>
 
-    <h1>{{ airline.nombre }}</h1>
+          <h3>Aeropuertos donde opera:</h3>
+          <ul>
+            {% for aeropuerto in airports %}
+              <li>{{ aeropuerto.nombre }}</li>
+            {% empty %}
+              <li>No hay aeropuertos disponibles.</li>
+            {% endfor %}
+          </ul>
 
+          <p><strong>Flota:</strong> {{ airline.flota }}</p>
 
-<div class="content-container">
+          <a id="back-button" href="{% url 'index_aerolineas' %}">Volver a la lista de Aerolíneas</a>
+        </div>
 
-    <div>
-        <p><strong>Descripción:</strong> {{ airline.descripcion }}</p>
-        <p><strong>Origen:</strong> {{ airline.pais }}</p>
+      </div>
     </div>
-
-    <div>
-        <h2>Aeropuertos donde opera:</h2>
-      <ul>
-        {% for aeropuerto in airports %}  <!-- Accede a la lista de aeropuertos que has pasado en el contexto -->
-            <li>{{ aeropuerto.nombre }}</li>  <!-- Muestra el nombre del aeropuerto -->
-        {% empty %}
-            <li>No hay aeropuertos disponibles.</li>
-        {% endfor %}
-    </ul>
-    </div>
-
-    <div>
-      <p>  <strong>Flota: </strong>{{ airline.flota }}</p>
-        
-    </div>
-
-</div>
-
-<a href="{% url 'index_aerolineas' %}" id="back-button">Volver a la lista de Aerolíneas</a>
-
+  </section>
 {% endblock %}

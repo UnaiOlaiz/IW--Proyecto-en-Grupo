@@ -1,45 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Portada{% endblock %}
+
+{% block titulo %}{{ pais.nombre }}{% endblock %}
 
 {% block contenido %}
+  <section class="about_section">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-items-center" style="height: 100vh;"> <!-- Centra el contenido vertical y horizontalmente -->
 
-<h1>{{ pais.nombre }}</h1> <!-- Nombre del país -->
+        <!-- Información del país -->
+        <div class="detail-box detail_box_common col-lg-6 col-md-8 text-center">
+          <div class="heading_container heading_center">
+            <h2>{{ pais.nombre }}</h2> <!-- Nombre del país -->
+          </div>
+          <p><strong>Capital:</strong> {{ pais.capital }}</p>
+          <p>{{ pais.descripcion }}</p> <!-- Descripción del país -->
 
-<div class="content-container"> <!-- Contenedor para el contenido -->
-
-    <section>
-        <h2>Información General</h2>
-        <p><strong>Capital:</strong> {{ pais.capital }}</p>
-        <p>{{ pais.descripcion }}</p> <!-- Descripción del país -->
-    </section>
-
-    <section>
-        <h2>Aeropuertos</h2>
-        <ul>
-            {% for aeropuerto in pais.aeropuerto_set.all %} <!-- Consulta los aeropuertos asociados al país -->
-                <li>{{ aeropuerto.nombre }}</li> <!-- Muestra el nombre del aeropuerto -->
+          <h3>Aeropuertos</h3>
+          <ul>
+            {% for aeropuerto in pais.aeropuerto_set.all %}
+              <li>{{ aeropuerto.nombre }}</li>
             {% empty %}
-                <li>No hay aeropuertos disponibles.</li>
+              <li>No hay aeropuertos disponibles.</li>
             {% endfor %}
-        </ul>
-    </section>
+          </ul>
 
-    <section>
-        <h2>Información de Vuelos</h2>
-        <h3>Aerolíneas Principales</h3>
-        <ul>
-            {% for aerolinea in pais.aerolinea_set.all %} <!-- Consulta las aerolíneas asociadas al país -->
-                <li>{{ aerolinea.nombre }}</li> <!-- Muestra el nombre de la aerolínea -->
+          <h3>Aerolíneas Principales</h3>
+          <ul>
+            {% for aerolinea in pais.aerolinea_set.all %}
+              <li>{{ aerolinea.nombre }}</li>
             {% empty %}
-                <li>No hay aerolíneas disponibles.</li>
+              <li>No hay aerolíneas disponibles.</li>
             {% endfor %}
-        </ul>
+          </ul>
+
+          <a id="back-button" href="{% url 'index_paises' %}">Volver a la lista de países</a>
+        </div>
         
-    </section>
-
-    <a id="back-button" href="{% url 'index_paises' %}">Volver a la lista de países</a>
-
-</div> <!-- Cierre del contenedor -->
-
+      </div>
+    </div>
+  </section>
 {% endblock %}

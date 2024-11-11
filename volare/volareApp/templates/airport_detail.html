@@ -1,25 +1,39 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block titulo %}Detalles de {{ aeropuerto.nombre }}{% endblock %}
 
 {% block contenido %}
-    <div class="airport-detail">
-        <h2>Detalles de {{ aeropuerto.nombre }}</h2>
-        <p><strong>Código IATA:</strong> {{ aeropuerto.codigo }}</p>
-        <p><strong>Ubicación:</strong> {{ aeropuerto.pais }}</p>
-        <p><strong>Teléfono:</strong> {{ aeropuerto.tlf }}</p>
-        
-        <h3>Aerolíneas asociadas:</h3>
-        <ul>
-            {% for aerolinea in aeropuerto.aerolineas.all %}
-                <li>
-                    <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
-                </li>
-            {% empty %}
-                <li>No hay aerolíneas asociadas a este aeropuerto.</li>
-            {% endfor %}
-        </ul>
+  <section class="about_section">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;"> <!-- Centra el contenido vertical y horizontalmente -->
 
-        <a id="back-button" href="{% url 'index_aeropuerto' %}">Volver a la lista de Aeropuertos</a>
+        <!-- Información del aeropuerto -->
+        <div class="detail-box detail_box_common col-lg-6 col-md-8 text-center">
+          <div class="heading_container heading_center">
+            <h2>Detalles de {{ aeropuerto.nombre }}</h2> <!-- Nombre del aeropuerto -->
+          </div>
+          <p><strong>Código IATA:</strong> {{ aeropuerto.codigo }}</p>
+          <p><strong>Ubicación:</strong> {{ aeropuerto.pais }}</p>
+          <p><strong>Teléfono:</strong> {{ aeropuerto.tlf }}</p>
+
+          <h3>Aerolíneas asociadas:</h3>
+          <ul>
+            {% for aerolinea in aeropuerto.aerolineas.all %}
+              <li>
+                <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
+              </li>
+            {% empty %}
+              <li>No hay aerolíneas asociadas a este aeropuerto.</li>
+            {% endfor %}
+          </ul>
+
+          <a id="back-button" href="{% url 'index_aeropuerto' %}">Volver a la lista de Aeropuertos</a>
+        </div>
+
+      </div>
     </div>
+  </section>
 {% endblock %}
+
+
