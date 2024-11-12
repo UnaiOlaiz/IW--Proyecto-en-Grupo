@@ -8,17 +8,21 @@
 
 <h2>Paises con sus aerolíneas más importantes</h2>
 
-<ul>
+<ul class="airline-list">
     {% for pais, aerolinea in pais_aerolineas.items %}
-        <li>
-            <strong>{{ pais.nombre }}</strong>: 
+        <li class="airline-item">
+            <strong class="country-name">{{ pais.nombre }}</strong>: 
             {% if aerolinea %}
-                <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a> (Fundada el {{ aerolinea.fundacion }})
+                <a href="{% url 'show_aerolinea' aerolinea.id %}" class="airline-link">
+                    {{ aerolinea.nombre }}
+                </a>
+                <span class="founding-date">(Fundada el {{ aerolinea.fundacion }})</span>
                 
-				<img img class="imagen-pequena w-25" alt="{{ aerolinea.imagen.name }}" src="{% static aerolinea.imagen.name %}" />
-					
+                <img class="airline-logo" alt="{{ aerolinea.nombre }}" src="{% static aerolinea.imagen.name %}" />
+
+                <p>Image Path: {% static aerolinea.imagen.name %}</p>
             {% else %}
-                Sin aerolíneas
+                <span class="no-airline">Sin aerolíneas</span>
             {% endif %}
         </li>
     {% endfor %}

@@ -73,3 +73,14 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const airlineItems = document.querySelectorAll(".airline-item");
+    airlineItems.forEach(item => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("expanded");
+            const logo = item.querySelector(".airline-logo");
+            if (logo) logo.classList.toggle("highlight")
+        })
+    })
+})

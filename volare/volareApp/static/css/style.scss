@@ -755,6 +755,94 @@ a:focus {
 
 }
 
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.airline_list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ariline_item {
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  margin: 1rem;
+  padding: 1rem;
+  width: calc(100% / 3 - 2rem);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.airline-item:hover {
+  transform: scale(1.05);
+}
+
+.country-name {
+  font-weight: bold;
+  color: #444;
+}
+
+.airline-link {
+  color: #0073e6;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.airline-link:hover {
+  color: #005bb5;
+}
+
+.founding-date {
+  display: block;
+  font-size: .9rem;
+  color: #888;
+  margin-top: .5rem;
+}
+
+.airline-logo {
+  width: 50px;
+  margin-top: 1rem;
+  border-radius: 4px;
+  transition:  transform 0.3s ease;
+}
+
+.airline-item:hover .airline-logo {
+  transform: scale(1.1);
+}
+
+.no-airline {
+  color: #aaa;
+}
+
+.title-style {
+  color: #a34318;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.btn.custom {
+  background-color: #a34318;
+  color: white;
+  padding: .3rem .75rem;
+  font-size: .9rem;
+  border-radius: 20px;
+  transition: background-color .3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #a34318;
+  color: white;
+}
 
 
 // end footer section

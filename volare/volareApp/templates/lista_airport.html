@@ -3,12 +3,23 @@
 {% block titulo %}Aeropuertos en {{ pais.nombre }}{% endblock %}
 
 {% block contenido %}
-<h2>Aeropuertos en {{ pais.nombre }}</h2>
-<ul>
-    {% for aeropuerto in lista_aeropuertos %}
-        <li>
-            <a href="{% url 'show_aeropuerto' aeropuerto.id %}">{{ aeropuerto.nombre }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-5">
+    <h2 class="text-center mb-4 title-style">Aeropuertos en {{ pais.nombre }}</h2>
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-flush col-md-8">
+            {% for aeropuerto in lista_aeropuertos %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="text-decoration-none text-dark">
+                        <strong>{{ aeropuerto.nombre }}</strong>
+                    </a>
+                    <span class="btn btn-custom">Ver más</span>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-center">
+                    <em>No hay aeropuertos disponibles en este momento.</em>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

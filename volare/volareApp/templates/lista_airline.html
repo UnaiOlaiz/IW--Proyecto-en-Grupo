@@ -3,14 +3,25 @@
 {% block titulo %}Bienvenido a Volare{% endblock %}
 
 {% block contenido %}
-<h2>Aerolíneas Disponibles</h2>
-<ul>
-    {% for aerolinea in lista_aerolineas %}
-        <li>
-            <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-5">
+    <h2 class="text-center mb-4 title-style">Aerolíneas Disponibles</h2>
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-flush col-md-8">
+            {% for aerolinea in lista_aerolineas %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="text-decoration-none text-dark">
+                        <strong>{{ aerolinea.nombre }}</strong>
+                    </a>
+                    <span class="btn btn-custom">Ver más</span>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-center">
+                    <em>No hay aerolíneas disponibles en este momento.</em>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}
 
 
