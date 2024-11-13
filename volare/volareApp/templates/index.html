@@ -18,9 +18,9 @@
                 </a>
                 <span class="founding-date">(Fundada el {{ aerolinea.fundacion }})</span>
                 
-                <img class="airline-logo" alt="{{ aerolinea.nombre }}" src="{% static aerolinea.imagen.name %}" />
-
-                <p>Image Path: {% static aerolinea.imagen.name %}</p>
+                <!--<img class="airline-logo" alt="{{ aerolinea.name }}" src="{% static aerolinea.imagen.name %}" />-->
+                <img class="imagen-pequena w-25" alt="{{ aerolinea.imagen.name }}" src="{% static aerolinea.imagen.name %}" />
+                <!--<p>Image Path: {% static aerolinea.imagen.name %}</p>-->
             {% else %}
                 <span class="no-airline">Sin aerolíneas</span>
             {% endif %}
