@@ -25,5 +25,6 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{%stattic 'js/custom.js'%}"></script>
+    {% load static %}
+    <script src="{% static 'js/custom.js'%}"></script>
 {% endblock %}
