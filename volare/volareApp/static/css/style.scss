@@ -830,19 +830,34 @@ a:focus {
   text-transform: uppercase;
 }
 
-.btn.custom {
-  background-color: #a34318;
-  color: white;
-  padding: .3rem .75rem;
-  font-size: .9rem;
+@mixin button-custom-style($bg-color, $text-color, $hover-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.9rem;
   border-radius: 20px;
-  transition: background-color .3s ease;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $hover-color;
+    color: $text-color;
+    transform: scale(1.05); 
+  }
+  
+  &:active {
+    transform: scale(0.95); 
+    opacity: 0.9;
+  }
 }
 
-.btn-custom:hover {
-  background-color: #a34318;
-  color: white;
+.btn-custom {
+  @include button-custom-style($primary1, $white, darken($primary1, 10%));
 }
 
-
+.btn-clicked{
+  transform: scale(.95);
+  opacity: .9;
+}
 // end footer section

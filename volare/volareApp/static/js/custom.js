@@ -84,3 +84,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".btn-custom");
+    buttons.forEach(button => {
+        button.addEventListener("mousedown", () => {
+            button.classList.add("btn-clicked");
+        });
+        button.addEventListener("mouseup", () => {
+            setTimeout(() => button=classList.remove("btn-cicked"), 150);
+        })
+        button.addEventListener("mouseleave", () => {
+            button.classList.remove("btn-clicked");
+        })
+    })
+})
