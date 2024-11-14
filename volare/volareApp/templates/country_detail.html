@@ -10,8 +10,12 @@
 
         <div class="detail-box detail_box_common">
           <div class="heading_container heading_center">
-            <h2>{{pais.nombre}}</h2>
-            <img src="{% static 'images/banderas/' %}{{ pais.nombre|lower }}.png" alt="Bandera de {{ pais.nombre }}" style="width: 150px; height: auto; margin-top: 1rem; border-radius: 5px; margin-left:auto; margin-right:auto ">
+            <h2 style="text-align: center; font-weight: bold; text-transform: uppercase; margin: 0 auto;">
+              {{ pais.nombre }}
+            </h2>
+            <p>
+            <p>
+            <img src="{% static 'images/banderas/' %}{{ pais.nombre|lower }}.png" alt="Bandera de {{ pais.nombre }}" class="flag-image">
             <hr>
           </div>
 
