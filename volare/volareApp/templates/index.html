@@ -20,8 +20,10 @@
                 
                 <!--<img class="airline-logo" alt="{{ aerolinea.name }}" src="{% static aerolinea.imagen.name %}" />-->
                 <!--Ruta cambiada para meter los logos de las aerolíneas en la carpeta static/images/aerolineas-->
-                <img class="imagen-pequena w-25" alt="{{ aerolinea.imagen.name }}" src="{% static 'images/aerolineas/' aerolinea.imagen.name %}" />
+                <!--<img class="imagen-pequena w-25" alt="{{ aerolinea.imagen.name }}" src="{% static 'images/aerolineas/' aerolinea.imagen.name %}" />-->
                 <!--<p>Image Path: {% static aerolinea.imagen.name %}</p>-->
+                <img src="{{ aerolinea.imagen.url }}" alt="{{ aerolinea.nombre }}" width="200" height="auto">
+
             {% else %}
                 <span class="no-airline">Sin aerolíneas</span>
             {% endif %}

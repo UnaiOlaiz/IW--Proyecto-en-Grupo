@@ -5,7 +5,7 @@ class Pais(models.Model):
     nombre = models.CharField(max_length=50)
     capital = models.CharField(max_length=100, default="No especificado")
     codigo = models.CharField(max_length=3)
-    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+    imagen = models.ImageField(upload_to='img/banderas',blank=True,null=True,verbose_name='Image')
     descripcion = models.TextField(default='Sin descripción')
 
 
@@ -32,7 +32,7 @@ class Aerolinea(models.Model):
     fundacion = models.DateField(null=True, blank=True)  
     descripcion = models.TextField(default='Sin descripción')
     flota = models.IntegerField(default=0)  
-    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+    imagen = models.ImageField(upload_to='img/aerolineas',blank=True,null=True,verbose_name='Image')
 
     
     def __str__(self):
