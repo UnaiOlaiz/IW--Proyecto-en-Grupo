@@ -27,13 +27,16 @@
           <h3>Aerolíneas Principales</h3>
           <ul>
             {% for aerolinea in pais.aerolinea_set.all %}
-              <li> {{aerolinea.nombre}} </li>
+			
+			    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="black-link">{{ aerolinea.nombre }}</a>
+			
             {% empty %}
               <li>No hay aerolíneas disponibles. </li>
             {% endfor %}
           </ul>
 
-          <a id="back-button" href="{%url 'index_paises'%}">Volver a la lista de países</a>
+		  <a id="back-button" href="{% url 'index_paises' %}" class="black-link">Volver a la lista de países</a>
+
         </div>
         
       </div>

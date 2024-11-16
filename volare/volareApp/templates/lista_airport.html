@@ -12,7 +12,9 @@
                     <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="text-decoration-none text-dark">
                         <strong>{{ aeropuerto.nombre }}</strong>
                     </a>
-                    <span class="btn btn-custom">Ver más</span>
+                    <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="btn btn-custom text-decoration-none">
+                        Ver más
+                    </a>
                 </li>
             {% empty %}
                 <li class="list-group-item text-center">
@@ -26,5 +28,5 @@
 
 {% block scripts %}
     {% load static %}
-    <script src="{% static 'js/custom.js'%}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
 {% endblock %}

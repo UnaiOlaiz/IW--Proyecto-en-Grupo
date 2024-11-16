@@ -12,7 +12,9 @@
                     <a href="{% url 'show_aerolinea' aerolinea.id %}" class="text-decoration-none text-dark">
                         <strong>{{ aerolinea.nombre }}</strong>
                     </a>
-                    <span class="btn btn-custom">Ver más</span>
+                    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="btn btn-custom text-decoration-none">
+                        Ver más
+                    </a>
                 </li>
             {% empty %}
                 <li class="list-group-item text-center">
@@ -23,6 +25,3 @@
     </div>
 </div>
 {% endblock %}
-
-
-

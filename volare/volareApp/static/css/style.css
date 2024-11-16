@@ -250,16 +250,7 @@ body {
   overflow-y: hidden;
 }
 
-a,
-a:hover,
-a:focus {
-  text-decoration: none;
-}
 
-a:hover,
-a:focus {
-  color: initial;
-}
 
 .btn,
 .btn:focus {
@@ -646,8 +637,17 @@ a:focus {
     padding: 0 10px;
 }
 
-.footer_section a:hover {
-    color: #f39c12; /* color when hovering */
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+  color:white;
+}
+
+a:hover,
+a:focus {
+   color: #f39c12;
+
 }
 
 .footer_section .container-fluid {
@@ -776,3 +776,16 @@ ul {
 ul li {
   margin-bottom: 10px; 
 }
+
+
+    .black-link {
+      color: black; /* Hace que el texto del enlace sea negro */
+      text-decoration: none; 
+	  
+    }
+
+    .black-link:hover {
+      text-decoration: underline; /* Opción para agregar subrayado al pasar el ratón sobre el enlace */
+	  text-decoration: none; 
+
+    }

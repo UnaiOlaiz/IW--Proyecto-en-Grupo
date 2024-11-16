@@ -12,11 +12,13 @@
                     <a href="{% url 'show_pais' pais.id %}" class="text-decoration-none text-dark">
                         <strong>{{ pais.nombre }}</strong>
                     </a>
-                    <span class="btn btn-custom">Ver más</span>
+                    <a href="{% url 'show_pais' pais.id %}" class="btn btn-custom text-decoration-none">
+                        Ver más
+                    </a>
                 </li>
             {% empty %}
                 <li class="list-group-item text-center">
-                    <em>No hay paises.</em>
+                    <em>No hay países.</em>
                 </li>
             {% endfor %}
         </ul>

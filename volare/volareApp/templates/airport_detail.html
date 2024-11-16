@@ -15,25 +15,29 @@
           </div>
           <p><strong>Código IATA:</strong> {{ aeropuerto.codigo }}</p>
           <p><strong>Ubicación:</strong> {{ aeropuerto.pais }}</p>
+		  
+          <p><strong>Origen:</strong> 
+            <a href="{% url 'show_pais' aeropuerto.pais.id %}" class="black-link">{{ aeropuerto.pais.nombre }}</a>
+          </p>
+		  
           <p><strong>Teléfono:</strong> {{ aeropuerto.tlf }}</p>
 
           <h3>Aerolíneas asociadas:</h3>
           <ul>
             {% for aerolinea in aeropuerto.aerolineas.all %}
               <li>
-                <a href="{% url 'show_aerolinea' aerolinea.id %}">{{ aerolinea.nombre }}</a>
+                <a href="{% url 'show_aerolinea' aerolinea.id %}" class="black-link">{{ aerolinea.nombre }}<br></a>
               </li>
             {% empty %}
               <li>No hay aerolíneas asociadas a este aeropuerto.</li>
             {% endfor %}
           </ul>
 
-          <a id="back-button" href="{% url 'index_aeropuerto' %}">Volver a la lista de Aeropuertos</a>
+          <a id="back-button" href="{% url 'index_aeropuerto' %}" class="black-link">Volver a la lista de Aeropuertos</a>
         </div>
 
       </div>
     </div>
   </section>
+
 {% endblock %}
-
-

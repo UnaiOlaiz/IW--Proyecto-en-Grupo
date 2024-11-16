@@ -13,12 +13,19 @@
             <h2>{{ airline.nombre }}</h2> <!-- Nombre de la aerolínea -->
           </div>
           <p><strong>Descripción:</strong> {{ airline.descripcion }}</p>
-          <p><strong>Origen:</strong> {{ airline.pais }}</p>
+            <p><strong>Origen:</strong> 
+            <a href="{% url 'show_pais' airline.pais.id %}" class="black-link">{{ airline.pais.nombre }}</a>
+           </p>
+
+
 
           <h3>Aeropuertos donde opera:</h3>
           <ul>
             {% for aeropuerto in airports %}
-              <li>{{ aeropuerto.nombre }}</li>
+			
+			    <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="black-link">{{ aeropuerto.nombre }}<br></a>
+
+			
             {% empty %}
               <li>No hay aeropuertos disponibles.</li>
             {% endfor %}
@@ -26,7 +33,8 @@
 
           <p><strong>Flota:</strong> {{ airline.flota }}</p>
 
-          <a id="back-button" href="{% url 'index_aerolineas' %}">Volver a la lista de Aerolíneas</a>
+          <a id="back-button" href="{% url 'index_aerolineas' %}" class="black-link">Volver a la lista de Aerolineas</a>
+
         </div>
 
       </div>
