@@ -15,7 +15,9 @@
             </h2>
             <p>
             <p>
-            <img src="{% static 'images/banderas/' %}{{ pais.nombre|lower }}.png" alt="Bandera de {{ pais.nombre }}" class="flag-image">
+            <img src="{{ pais.imagen.url }}" alt="Bandera de {{ pais.nombre }}" class="flag-image">
+			 
+
             <hr>
           </div>
 
