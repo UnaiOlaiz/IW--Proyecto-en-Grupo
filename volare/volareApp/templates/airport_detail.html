@@ -11,12 +11,11 @@
         <!-- Información del aeropuerto -->
         <div class="detail-box detail_box_common col-lg-6 col-md-8 text-center">
           <div class="heading_container heading_center">
-            <h2>Detalles de {{ aeropuerto.nombre }}</h2> <!-- Nombre del aeropuerto -->
+            <h2>Detalles de {{ aeropuerto.nombre }}</h2> 
           </div>
           <p><strong>Código IATA:</strong> {{ aeropuerto.codigo }}</p>
-          <p><strong>Ubicación:</strong> {{ aeropuerto.pais }}</p>
 		  
-          <p><strong>Origen:</strong> 
+          <p><strong>Ubicación:</strong> 
             <a href="{% url 'show_pais' aeropuerto.pais.id %}" class="black-link">{{ aeropuerto.pais.nombre }}</a>
           </p>
 		  

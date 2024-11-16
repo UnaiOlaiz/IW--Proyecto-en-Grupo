@@ -28,7 +28,7 @@
           <ul>
             {% for aerolinea in pais.aerolinea_set.all %}
 			
-			    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="black-link">{{ aerolinea.nombre }}</a>
+			    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="black-link">{{ aerolinea.nombre }}<br></a>
 			
             {% empty %}
               <li>No hay aerolíneas disponibles. </li>
