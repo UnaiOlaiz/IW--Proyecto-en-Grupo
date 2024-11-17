@@ -480,8 +480,7 @@ body {
 
 .portfolio_section .portfolio_item:hover .btn-box a {
     transform: scale(1.05);
-}
-
+} 
 .team_section .team_container {
     display: flex;
     flex-wrap: wrap;
@@ -492,21 +491,21 @@ body {
 
 .team_section .team_box {
     position: relative;
-    width: 280px; /* Ancho fijo para un diseño compacto */
-    border-radius: 15px; /* Bordes redondeados */
+    width: 280px; 
+    border-radius: 15px; 
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    transition: transform 0.3s ease-in-out; /* Efecto suave en hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out; 
 }
 
 .team_section .team_box:hover {
-    transform: scale(1.05); /* Aumento sutil al hacer hover */
+    transform: scale(1.05); 
 }
 
 .team_section .team_box .img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin distorsionarse */
+    object-fit: cover; 
 }
 
 .team_section .team_box .detail-box {
@@ -559,13 +558,13 @@ body {
 
 .contact_section {
     position: relative;
-    background-color: #85310c; /* Fondo oscuro para contraste */
-    color: #fff; /* Texto blanco */
-    padding: 30px 15px; /* Espaciado más pequeño */
-    border-radius: 10px; /* Bordes redondeados */
-    margin: 20px auto; /* Margen para centrar */
-    max-width: 500px; /* Ancho máximo para hacer la sección más compacta */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    background-color: #85310c; 
+    color: #fff; 
+    padding: 30px 15px; 
+    border-radius: 10px; 
+    margin: 20px auto; 
+    max-width: 500px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     text-align: center;
 }
 
@@ -583,11 +582,11 @@ body {
 .contact_section .contact_link_box {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Espaciado entre los enlaces */
+    gap: 20px; 
 }
 
 .contact_section .contact_link {
-    color: #fff; /* Enlaces blancos */
+    color: #fff; 
     font-size: 16px;
     text-transform: uppercase;
     text-decoration: none;
@@ -598,14 +597,14 @@ body {
 }
 
 .contact_section .contact_link:hover {
-    background-color: #fff; /* Fondo blanco al pasar el ratón */
-    color: #333; /* Texto oscuro */
+    background-color: #fff; 
+    color: #333; 
 }
 
 .contact_section .info_social {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Espaciado entre los iconos sociales */
+    gap: 15px; 
     margin-top: 20px;
 }
 
@@ -619,8 +618,8 @@ body {
 }
 
 .contact_section .social_icon:hover {
-    background-color: #85310c; /* Color de fondo en hover */
-    color: #fff; /* Icono blanco */
+    background-color: #85310c; 
+    color: #fff; 
 }
 
 /* Footer Styles */
@@ -749,8 +748,8 @@ h2 {
     font-size: 32px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 30px;  /* Asegura que haya un espacio debajo del título */
-    padding-bottom: 10px; /* Añade un poco de relleno en la parte inferior */
+    margin-bottom: 30px;  
+    padding-bottom: 10px;  
     text-align: center;
     text-transform: uppercase;
     position: relative;
@@ -781,13 +780,37 @@ ul li {
 
 
     .black-link {
-      color: black; /* Hace que el texto del enlace sea negro */
+      color: black; 
       text-decoration: none; 
 	  
     }
 
     .black-link:hover {
-      text-decoration: underline; /* Opción para agregar subrayado al pasar el ratón sobre el enlace */
+      text-decoration: underline; 
 	  text-decoration: none; 
 
-    }
+    }	
+	
+.contact_link_box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  align-items: center; 
+    justify-content: center; 
+}
+
+.social_icons {
+    display: flex;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 55px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
