@@ -13,51 +13,49 @@
     <link rel="shortcut icon" type="image/icon" href="{% static 'css/favicon.png' %}">
 
     <!-- Enlaces a las hojas de estilo -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
-    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
 </head>
 
- <header class="header_section">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
-          <div class="custom_menu-btn">
-              <button onclick="openNav()">
+<body>
+  <header class="header_section">
+    <nav class="navbar navbar-expand-lg custom_nav-container">
+      <div class="custom_menu-btn">
+          <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+          </button>
+      </div>
+      <div id="myNav" class="overlay">
+          <div class="menu_btn-style">
+              <button onclick="closeNav()">
                   <span class="s-1"> </span>
                   <span class="s-2"> </span>
                   <span class="s-3"> </span>
               </button>
           </div>
-          <div id="myNav" class="overlay">
-              <div class="menu_btn-style">
-                  <button onclick="closeNav()">
-                      <span class="s-1"> </span>
-                      <span class="s-2"> </span>
-                      <span class="s-3"> </span>
-                  </button>
-              </div>
-              <div class="overlay-content">
-                  <a class="active" href="{% url 'index' %}">Home</a>
-                  <a href="{% url 'index_paises' %}">Paises</a>
-                  <a href="{% url 'index_aerolineas' %}">Aerolineas</a>
-                  <a href="{% url 'index_aeropuerto' %}">Aeropuertos</a>
-              </div>
+          <div class="overlay-content">
+              <a class="active" href="{% url 'index' %}">Home</a>
+              <a href="{% url 'index_paises' %}">Paises</a>
+              <a href="{% url 'index_aerolineas' %}">Aerolineas</a>
+              <a href="{% url 'index_aeropuerto' %}">Aeropuertos</a>
           </div>
-          <a class="navbar-brand" href="{% url 'index' %}">
-              <span>Volare</span>
-          </a>
-          <a href="tel:123456789" class="call_btn">Call Us Now</a>
-      </nav>
-    </header>
-<body>
-
+      </div>
+      <a class="navbar-brand" href="{% url 'index' %}">
+          <span>Volare</span>
+      </a>
+      <a href="tel:123456789" class="call_btn">Call Us Now</a>
+    </nav>
+  </header>
 
 {% block contenido %}{% endblock %}
 
  <div style="height: 60px;"></div>
-
 
  <footer class="footer_section">
     <div class="container-fluid">

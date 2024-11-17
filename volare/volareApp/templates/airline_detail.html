@@ -18,14 +18,13 @@
            </p>
 
 
-
           <h3>Aeropuertos donde opera:</h3>
           <ul>
             {% for aeropuerto in airports %}
-			
-			    <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="black-link">{{ aeropuerto.nombre }}<br></a>
-
-			
+              <li>
+                <a href="{% url 'show_aeropuerto' aeropuerto.id %}" class="black-link">{{ aeropuerto.nombre }}<br></a>
+              </li>
+		
             {% empty %}
               <li>No hay aeropuertos disponibles.</li>
             {% endfor %}
