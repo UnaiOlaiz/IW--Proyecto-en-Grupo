@@ -6,7 +6,7 @@ def index(request):
     
     # Obtener todos los países
     paises = get_list_or_404(Pais.objects.order_by('nombre'))
-    # Crear un diccionario para almacenar el país y su aerolínea más antigua
+    # País y su aerolínea más antigua
     pais_aerolineas = {}
     
     for pais in paises:
@@ -56,20 +56,4 @@ def show_Aerolinea(request, aerolinea_id):
     }
     return render(request, 'airline_detail.html', context)
 
-# aerolineas relacionadas con pais especifico ??????
-def index_Aerolineas_Pais(request, pais_id):
-    pais = get_object_or_404(Pais, pk=pais_id)
-    aerolineas = pais.aerolinea_set.all()
-    context = {'pais': pais, 'lista_aerolineas': aerolineas}
-    return render(request, 'aerolineas_por_pais.html', context)
 
-# aeropuertos relacionados con pais especifico ???????
-def index_Aeropuerto_Pais(request, pais_id):
-    pais = get_object_or_404(Pais, pk=pais_id)
-    aeropuertos = pais.aeropuerto_set.all()
-    context = {'pais': pais, 'lista_aeropuertos': aeropuertos}
-    return render(request, 'aeropuertos.html', context)
-
-
-
-        

@@ -27,5 +27,5 @@ urlpatterns = [
     path('', include('volareApp.urls')), 
 ]
 
-if settings.DEBUG:  # Solo sirve archivos media en desarrollo
+if settings.DEBUG:  # Archivos media en desarrollo
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

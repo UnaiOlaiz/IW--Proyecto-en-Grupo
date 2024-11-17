@@ -8,7 +8,6 @@ class Pais(models.Model):
     descripcion = models.TextField(default='Sin descripción')
 
 
-   
     def __str__(self):
         return self.nombre
     
