@@ -1,10 +1,9 @@
-
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Portada{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans "Portada" %}{% endblock %}
 
 {% block contenido %}
-
     <section class="slider_section position-relative">
       <div class="container-fluid">
           <div class="row">
@@ -16,9 +15,9 @@
                           <div class="carousel-item active">
                               <div class="detail_content">
                                   <div>
-                                      <h1>Explora <br>Aerolíneas</h1>
+                                      <h1>{% trans "Explora" %} <br>{% trans "Aerolineas" %}</h1>
                                       <a href="{% url 'index_aerolineas' %}">
-                                          Ver Más
+                                          {% trans "Ver Más" %}
                                       </a>
                                   </div>
                               </div>
@@ -27,9 +26,9 @@
                           <div class="carousel-item">
                               <div class="detail_content">
                                   <div>
-                                      <h1>Conoce <br>Aeropuertos</h1>
+                                      <h1>{% trans "Conoce" %} <br>{% trans "Aeropuertos" %}</h1>
                                       <a href="{% url 'index_aeropuerto' %}">
-                                          Ver Más
+                                          {% trans "Ver Más" %}
                                       </a>
                                   </div>
                               </div>
@@ -38,9 +37,9 @@
                           <div class="carousel-item">
                               <div class="detail_content">
                                   <div>
-                                      <h1>Descubre <br>Países</h1>
+                                      <h1>{% trans "Descubre" %} <br>{% trans "Paises" %}</h1>
                                       <a href="{% url 'index_paises' %}">
-                                          Ver Más
+                                          {% trans "Ver Más" %}
                                       </a>
                                   </div>
                               </div>
@@ -54,113 +53,94 @@
                       <div class="carousel-inner">
                           <!-- Imagen 1 -->
                           <div class="carousel-item active">
-                              <img src="{% static 'images/imagen1portada.jpg' %}" alt="Aerolíneas">
+                              <img src="{% static 'images/imagen1portada.jpg' %}" alt="{% trans 'Aerolíneas' %}">
                           </div>
                           <!-- Imagen 2 -->
                           <div class="carousel-item">
-                              <img src="{% static 'images/imagen2.jpg' %}" alt="Aeropuertos">
+                              <img src="{% static 'images/imagen2.jpg' %}" alt="{% trans 'Aeropuertos' %}">
                           </div>
                           <!-- Imagen 3 -->
                           <div class="carousel-item">
-                              <img src="{% static 'images/imagen3.jpg' %}" alt="Países">
+                              <img src="{% static 'images/imagen3.jpg' %}" alt="{% trans 'Países' %}">
                           </div>
                       </div>
-                  </div>
-                  <!-- Botones de navegación del slider -->
-                  <div class="carousel_btn-box">
-                      <a class="slider_btn_prev" href="#imageCarousel" role="button" data-slide="prev">
-                          <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-                          <span class="sr-only">Previous</span>
-                      </a>
-                      <a class="slider_btn_next" href="#imageCarousel" role="button" data-slide="next">
-                          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                          <span class="sr-only">Next</span>
-                      </a>
                   </div>
               </div>
           </div>
       </div>
     </section>
-    <!-- End Slider Section -->
 
-<br><br>
-<h2>Paises con sus aerolíneas más importantes</h2>
+    <br><br>
+    <h2>{% trans "Paises con sus aerolíneas más importantes" %}</h2>
 
-<ul class="airline-list">
-    {% for pais, aerolinea in pais_aerolineas.items %}
-        <li class="airline-item">
-            <strong class="country-name">{{ pais.nombre }}</strong>
-            {% if aerolinea %}
-                <a href="{% url 'show_aerolinea' aerolinea.id %}" class="airline-link">
-                    {{ aerolinea.nombre }}
-                </a>
-                <span class="founding-date">(Fundada el {{ aerolinea.fundacion }})</span>
-                <img src="{{ aerolinea.imagen.url }}" alt="{{ aerolinea.nombre }}" width="200">
+    <ul class="airline-list">
+        {% for pais, aerolinea in pais_aerolineas.items %}
+            <li class="airline-item">
+                <strong class="country-name">{% trans pais.nombre %}</strong>
+                {% if aerolinea %}
+                    <a href="{% url 'show_aerolinea' aerolinea.id %}" class="airline-link">
+                        {{ aerolinea.nombre }}
+                    </a>
+                    <span class="founding-date">({% trans "Fundada el" %} {{ aerolinea.fundacion }})</span>
+                    <img src="{{ aerolinea.imagen.url }}" alt="{{ aerolinea.nombre }}" width="200">
+                {% else %}
+                    <span class="no-airline">{% trans "Sin aerolíneas" %}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 
-            {% else %}
-                <span class="no-airline">Sin aerolíneas</span>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
-
-
-<section class="portfolio_section">
-    <div class="heading_container">
-        <h2>Datos Curiosos de la Aviación</h2>
-    </div>
-    <div class="portfolio_container">
-        <div class="portfolio_item">
-            <h3 class="portfolio_title">Aerolínea Más Antigua</h3>
-            <p class="portfolio_description">
-                La aerolínea más antigua que aún opera es <strong>KLM Royal Dutch Airlines</strong>, fundada en 1919. 
-                Opera vuelos internacionales desde su base en Ámsterdam, Países Bajos.
-            </p>
+    <section class="portfolio_section">
+        <div class="heading_container">
+            <h2>{% trans "Datos Curiosos de la Aviación" %}</h2>
         </div>
-        <div class="portfolio_item">
-            <h3 class="portfolio_title">Aeropuerto Más Ocupado</h3>
-            <p class="portfolio_description">
-                El aeropuerto con mayor tráfico de pasajeros en el mundo es el <strong>Aeropuerto Internacional Hartsfield-Jackson de Atlanta (ATL)</strong>, con más de 100 millones de pasajeros anuales.
-            </p>
-        </div>
-        <div class="portfolio_item">
-            <h3 class="portfolio_title">El Vuelo Más Largo</h3>
-            <p class="portfolio_description">
-                El vuelo comercial más largo del mundo es operado por <strong>Singapore Airlines</strong>, cubriendo más de 18,000 km entre Singapur y Nueva York en aproximadamente 18 horas.
-            </p>
-        </div>
-    </div>
-</section>
-
-
-
-<section class="contact_section">
-    <div class="heading_container">
-        <h2>Contacto</h2>
-    </div>
-    <div class="map_container">
-        <div id="googleMap" class="map"></div>
-    </div>
-    <div class="info_contact">
-        <div class="contact_link_box">
-            <a href="tel:+123456789">Llamanos</a>
-            <a href="mailto:info@example.com">Email</a>
-            <div class="social_icons">
-                <a href="https://twitter.com" target="_blank">
-                    <img src="{% static 'images/twitter-icon.png' %}" alt="Twitter" class="social-icon">
-                </a>
-                <a href="https://instagram.com" target="_blank">
-                    <img src="{% static 'images/instagram-icon.png' %}" alt="Instagram" class="social-icon">
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <img src="{% static 'images/facebook-icon.png' %}" alt="Facebook" class="social-icon">
-                </a>
+        <div class="portfolio_container">
+            <div class="portfolio_item">
+                <h3 class="portfolio_title">{% trans "Aerolínea Más Antigua" %}</h3>
+                <p class="portfolio_description">
+                    {% trans "La aerolínea más antigua que aún opera es" %} <strong>{% trans "KLM Royal Dutch Airlines" %}</strong>, {% trans "fundada en" %} 1919.
+                    {% trans "Opera vuelos internacionales desde su base en Ámsterdam, Países Bajos." %}
+                </p>
+            </div>
+            <div class="portfolio_item">
+                <h3 class="portfolio_title">{% trans "Aeropuerto Más Ocupado" %}</h3>
+                <p class="portfolio_description">
+                    {% trans "El aeropuerto con mayor tráfico de pasajeros en el mundo es el" %} <strong>{% trans "Aeropuerto Internacional Hartsfield-Jackson de Atlanta (ATL)" %}</strong>, {% trans "con más de 100 millones de pasajeros anuales." %}
+                </p>
+            </div>
+            <div class="portfolio_item">
+                <h3 class="portfolio_title">{% trans "El Vuelo Más Largo" %}</h3>
+                <p class="portfolio_description">
+                    {% trans "El vuelo comercial más largo del mundo es operado por" %} <strong>{% trans "Singapore Airlines" %}</strong>, {% trans "cubriendo más de 18,000 km entre Singapur y Nueva York en aproximadamente 18 horas." %}
+                </p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
+    <section class="contact_section">
+        <div class="heading_container">
+            <h2>{% trans "Contacto" %}</h2>
+        </div>
+        <div class="map_container">
+            <div id="googleMap" class="map"></div>
+        </div>
+        <div class="info_contact">
+            <div class="contact_link_box">
+                <a href="tel:+123456789">{% trans "Llamanos" %}</a>
+                <a href="mailto:info@example.com">{% trans "Email" %}</a>
+                <div class="social_icons">
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="{% static 'images/twitter-icon.png' %}" alt="{% trans 'Twitter' %}" class="social-icon">
+                    </a>
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="{% static 'images/instagram-icon.png' %}" alt="{% trans 'Instagram' %}" class="social-icon">
+                    </a>
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="{% static 'images/facebook-icon.png' %}" alt="{% trans 'Facebook' %}" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
-

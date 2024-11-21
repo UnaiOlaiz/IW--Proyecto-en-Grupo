@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-21 12:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\volareApp\templates\base.html:10
+msgid "Welcome to Volare"
+msgstr "Bienvenido a Volare"
+
+#: .\volareApp\templates\base.html:36
+msgid "Change language"
+msgstr "Cambiar idioma"
+
+#: .\volareApp\templates\base.html:57 .\volareApp\templates\base.html:86 .\volareApp\templates\base.html:106
+msgid "Home"
+msgstr "Inicio"
+
+
+#: .\volareApp\templates\base.html:59 .\volareApp\templates\base.html:88 .\volareApp\templates\base.html:108
+msgid "Airlines"
+msgstr "Aerolineas"
+
+#: .\volareApp\templates\base.html:60 .\volareApp\templates\base.html:89
+#: .\volareApp\templates\index.html:29 .\volareApp\templates\index.html:60 .\volareApp\templates\base.html:109
+msgid "Airports"
+msgstr "Aeropuertos"
+
+#: .\volareApp\templates\base.html:66
+msgid "Call us now"
+msgstr "Llamanos ahora"
+
+#: .\volareApp\templates\base.html:101
+msgid "All rights reserved. Lovingly designed by the Volare group"
+msgstr "Todos los derechos reservados. Diseñado con cariño por el grupo Volare"
+
+#: .\volareApp\templates\index.html:3
+msgid "Cover"
+msgstr "Portada"
+
+#: .\volareApp\templates\index.html:18
+msgid "Explore"
+msgstr "Explora"
+
+#: .\volareApp\templates\index.html:20 .\volareApp\templates\index.html:31
+#: .\volareApp\templates\index.html:42
+msgid "See More"
+msgstr "Ver Más"
+
+#: .\volareApp\templates\index.html:29
+msgid "Get to Know"
+msgstr "Conoce"
+
+#: .\volareApp\templates\index.html:40
+msgid "Discover"
+msgstr "Descubre"
+
+#: .\volareApp\templates\index.html:40 .\volareApp\templates\index.html:64 .\volareApp\templates\base.html:107
+msgid "Countries"
+msgstr "Paises"
+
+#: .\volareApp\templates\index.html:74
+msgid "Countries with their most important airlines"
+msgstr "Paises con sus aerolíneas más importantes"
+
+#: .\volareApp\templates\index.html:84
+msgid "Founded on"
+msgstr "Fundada el"
+
+#: .\volareApp\templates\index.html:87
+msgid "No airlines"
+msgstr "Sin aerolíneas"
+
+#: .\volareApp\templates\index.html:95
+msgid "Interesting Facts About Aviation"
+msgstr "Datos Curiosos de la Aviación"
+
+#: .\volareApp\templates\index.html:99
+msgid "Oldest Airline"
+msgstr "Aerolínea Más Antigua"
+
+#: .\volareApp\templates\index.html:101
+msgid "The oldest airline still operating is"
+msgstr "La aerolínea más antigua que aún opera es"
+
+#: .\volareApp\templates\index.html:101
+msgid "KLM Royal Dutch Airlines"
+msgstr "KLM Royal Dutch Airlines"
+
+#: .\volareApp\templates\index.html:101
+msgid "founded in"
+msgstr "fundada en"
+
+#: .\volareApp\templates\index.html:102
+msgid "Operates international flights from its base in Amsterdam, Netherlands."
+msgstr "Opera vuelos internacionales desde su base en Ámsterdam, Países Bajos."
+
+#: .\volareApp\templates\index.html:106
+msgid "Busiest Airport"
+msgstr "Aeropuerto Más Ocupado"
+
+#: .\volareApp\templates\index.html:108
+msgid "The airport with the highest passenger traffic in the world is the"
+msgstr "El aeropuerto con mayor tráfico de pasajeros en el mundo es el"
+
+#: .\volareApp\templates\index.html:108
+msgid "Hartsfield-Jackson Atlanta International Airport (ATL)"
+msgstr "Aeropuerto Internacional Hartsfield-Jackson de Atlanta (ATL)"
+
+#: .\volareApp\templates\index.html:108
+msgid "with over 100 million passengers annually."
+msgstr "con más de 100 millones de pasajeros anuales."
+
+#: .\volareApp\templates\index.html:112
+msgid "The Longest Flight"
+msgstr "El Vuelo Más Largo"
+
+#: .\volareApp\templates\index.html:114
+msgid "The longest commercial flight in the world is operated by"
+msgstr "El vuelo comercial más largo del mundo es operado por"
+
+#: .\volareApp\templates\index.html:114
+msgid "Singapore Airlines"
+msgstr "Singapore Airlines"
+
+#: .\volareApp\templates\index.html:114
+msgid "covering over 18,000 km between Singapore and New York in approximately 18 hours."
+msgstr "cubriendo más de 18,000 km entre Singapur y Nueva York en aproximadamente 18 horas."
+
+#: .\volareApp\templates\index.html:122
+msgid "Contact"
+msgstr "Contacto"
+
+#: .\volareApp\templates\index.html:129
+msgid "Call us"
+msgstr "Llamanos"
+
+#: .\volareApp\templates\index.html:130
+msgid "Email"
+msgstr "Email"
+
+#: .\volareApp\templates\index.html:133
+msgid "Twitter"
+msgstr "Twitter"
+
+#: .\volareApp\templates\index.html:136
+msgid "Instagram"
+msgstr "Instagram"
+
+#: .\volareApp\templates\index.html:139
+msgid "Facebook"
+msgstr "Facebook"
+
+
+
+msgid "Spain"
+msgstr "España"
+
+msgid "France"
+msgstr "Francia"
+
+msgid "Germany"
+msgstr "Alemania"
+
+msgid "Qatar"
+msgstr "Catar"
+
+msgid "Ireland"
+msgstr "Irlanda"
+
+msgid "United Kingdom"
+msgstr "Reino Unido"

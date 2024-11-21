@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block titulo %}Bienvenido a Volare{% endblock %}</title>
-    {% load static %}
+    {% load i18n %}
+	{% load static %}
+
+    <!-- Título sin la etiqueta trans dentro del bloque -->
+    <title>{% block titulo %}{% trans "Bienvenido a Volare" %}{% endblock %}</title>
     
     <!-- Enlace a Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -23,6 +26,37 @@
 
 <body>
   <header class="header_section">
+  
+  
+  
+<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <select name="language">
+        <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+    </select>
+    <button type="submit">{% trans "Cambiar idioma" %}</button>
+</form>
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+    <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg custom_nav-container">
       <div class="custom_menu-btn">
           <button onclick="openNav()">
@@ -40,46 +74,39 @@
               </button>
           </div>
           <div class="overlay-content">
-              <a class="active" href="{% url 'index' %}">Home</a>
-              <a href="{% url 'index_paises' %}">Paises</a>
-              <a href="{% url 'index_aerolineas' %}">Aerolineas</a>
-              <a href="{% url 'index_aeropuerto' %}">Aeropuertos</a>
+              <a class="active" href="{% url 'index' %}">{% trans "Inicio" %}</a>
+              <a href="{% url 'index_paises' %}">{% trans "Paises" %}</a>
+              <a href="{% url 'index_aerolineas' %}">{% trans "Aerolineas" %}</a>
+              <a href="{% url 'index_aeropuerto' %}">{% trans "Aeropuertos" %}</a>
           </div>
       </div>
       <a class="navbar-brand" href="{% url 'index' %}">
           <span>Volare</span>
       </a>
-      <a href="tel:123456789" class="call_btn">Call Us Now</a>
+      <a href="tel:123456789" class="call_btn">{% trans "Llamanos ahora" %}</a>
     </nav>
   </header>
 
-{% block contenido %}{% endblock %}
+  <!-- Bloque de contenido -->
+  {% block contenido %}{% endblock %}
 
- <div style="height: 60px;"></div>
+  <div style="height: 60px;"></div>
 
- <footer class="footer_section">
+  <!-- Pie de página -->
+  <footer class="footer_section">
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl-6">
           <p>
-            &copy; <span id="displayYear"></span> All Rights Reserved. Designed with care
-            by Volare team
+            &copy; <span id="displayYear"></span> {% trans "Todos los derechos reservados. Diseñado con cariño por el grupo Volare" %}
           </p>
         </div>
         <div class="col-xl-6">
           <div class="link_box">
-            <a class="" href="{% url 'index' %}">
-              Home
-            </a>
-            <a class="" href="{% url 'index_paises' %}">
-              Paises
-            </a>
-            <a class="" href="{% url 'index_aerolineas' %}">
-              Aerolineas
-            </a>
-            <a class="" href="{% url 'index_aeropuerto' %}">
-              Aeropuertos
-            </a>
+            <a href="{% url 'index' %}">{% trans "Inicio" %}</a>
+            <a href="{% url 'index_paises' %}">{% trans "Paises" %}</a>
+            <a href="{% url 'index_aerolineas' %}">{% trans "Aerolineas" %}</a>
+            <a href="{% url 'index_aeropuerto' %}">{% trans "Aeropuertos" %}</a>
           </div>
         </div>
       </div>
@@ -92,6 +119,6 @@
 <script src="{% static 'js/custom.js' %}"></script>
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-	
+  
 </body>
 </html>

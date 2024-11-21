@@ -15,6 +15,9 @@ def index(request):
         pais_aerolineas[pais] = aerolinea_antigua
 
     context = {'pais_aerolineas': pais_aerolineas}
+    
+    
+
     return render(request, 'index.html', context)
 
 # lista de paises

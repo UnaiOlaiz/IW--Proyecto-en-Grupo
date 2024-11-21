@@ -15,17 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
 from django.contrib import admin
 from django.urls import path, include
-
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
-    path('volareApp/', include('volareApp.urls')),  
-    path('admin/', admin.site.urls), 
-    path('', include('volareApp.urls')), 
+    path('i18n/', include('django.conf.urls.i18n')),  # Esto incluye las URLs para manejar los idiomas
 ]
 
+
+urlpatterns += i18n_patterns(
+    path('admin/', admin.site.urls),
+    path('', include('volareApp.urls')),
+)
+
+# Solo agregamos esta parte si estás en modo de desarrollo y usas archivos estáticos y de medios.
 if settings.DEBUG:  # Archivos media en desarrollo
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-21 12:17+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\volareApp\templates\base.html:36
+msgid "Cambiar idioma"
+msgstr "Change language"
+
+#: .\volareApp\templates\base.html:101
+msgid "© 2024 Todos los derechos reservados. Diseñado con cariño por el grupo Volare"
+msgstr "© 2024 All rights reserved. Designed with care by Volare"
+
+#: .\volareApp\templates\base.html:57 .\volareApp\templates\base.html:86 .\volareApp\templates\base.html:106
+msgid "Inicio"
+msgstr "Home"
+
+
+#: .\volareApp\templates\index.html:40 .\volareApp\templates\index.html:64 .\volareApp\templates\base.html:107
+msgid "Paises"
+msgstr "Countries"
+
+
+
+#: .\volareApp\templates\index.html:3
+msgid "Portada"
+msgstr "Homepage"
+
+#: .\volareApp\templates\index.html:18
+msgid "Explora"
+msgstr "Explore"
+
+#: .\volareApp\templates\index.html:20 .\volareApp\templates\index.html:31
+#: .\volareApp\templates\index.html:42
+msgid "Ver Más"
+msgstr "See More"
+
+#: .\volareApp\templates\index.html:29
+msgid "Conoce"
+msgstr "Get to know"
+
+#: .\volareApp\templates\index.html:40
+msgid "Descubre"
+msgstr "Discover"
+
+#: .\volareApp\templates\base.html:59 .\volareApp\templates\base.html:88 .\volareApp\templates\base.html:108
+msgid "Aerolineas"
+msgstr "Airlines"
+
+
+#: .\volareApp\templates\index.html:74
+msgid "Paises con sus aerolíneas más importantes"
+msgstr "Countries with their most important airlines"
+
+#: .\volareApp\templates\index.html:84
+msgid "Fundada el"
+msgstr "Founded on"
+
+#: .\volareApp\templates\index.html:95
+msgid "Datos Curiosos de la Aviación"
+msgstr "Aviation Fun Facts"
+
+#: .\volareApp\templates\index.html:99
+msgid "Aerolínea Más Antigua"
+msgstr "Oldest Airline"
+
+#: .\volareApp\templates\index.html:101
+msgid "La aerolínea más antigua que aún opera es"
+msgstr "The oldest airline still in operation is"
+
+#: .\volareApp\templates\index.html:101
+msgid "KLM Royal Dutch Airlines"
+msgstr "KLM Royal Dutch Airlines"
+
+#: .\volareApp\templates\index.html:101
+msgid "fundada en"
+msgstr "founded in"
+
+#: .\volareApp\templates\index.html:102
+msgid "Opera vuelos internacionales desde su base en Ámsterdam, Países Bajos."
+msgstr "It operates international flights from its base in Amsterdam, Netherlands."
+
+#: .\volareApp\templates\index.html:106
+msgid "Aeropuerto Más Ocupado"
+msgstr "Busiest Airport"
+
+#: .\volareApp\templates\base.html:60 .\volareApp\templates\base.html:89
+#: .\volareApp\templates\index.html:29 .\volareApp\templates\index.html:60 .\volareApp\templates\base.html:109
+msgid "Aeropuertos"
+msgstr "Airports"
+
+
+#: .\volareApp\templates\index.html:108
+msgid "El aeropuerto con mayor tráfico de pasajeros en el mundo es el"
+msgstr "The airport with the highest passenger traffic in the world is"
+
+#: .\volareApp\templates\index.html:108
+msgid "Aeropuerto Internacional Hartsfield-Jackson de Atlanta (ATL)"
+msgstr "Hartsfield-Jackson Atlanta International Airport (ATL)"
+
+#: .\volareApp\templates\index.html:108
+msgid "con más de 100 millones de pasajeros anuales."
+msgstr "with over 100 million passengers annually."
+
+#: .\volareApp\templates\index.html:112
+msgid "El Vuelo Más Largo"
+msgstr "The Longest Flight"
+
+#: .\volareApp\templates\index.html:114
+msgid "El vuelo comercial más largo del mundo es operado por"
+msgstr "The world's longest commercial flight is operated by"
+
+#: .\volareApp\templates\index.html:114
+msgid "Singapore Airlines"
+msgstr "Singapore Airlines"
+
+#: .\volareApp\templates\index.html:114
+msgid ""
+"cubriendo más de 18,000 km entre Singapur y Nueva York en aproximadamente 18 "
+"horas."
+msgstr "covering more than 18,000 km between Singapore and New York in approximately 18 hours."
+
+#: .\volareApp\templates\index.html:122
+msgid "Contacto"
+msgstr "Contact"
+
+#: .\volareApp\templates\index.html:130
+msgid "Email"
+msgstr "Email"
+
+#: .\volareApp\templates\index.html:133
+msgid "Twitter"
+msgstr "Twitter"
+
+#: .\volareApp\templates\index.html:136
+msgid "Instagram"
+msgstr "Instagram"
+
+#: .\volareApp\templates\index.html:139
+msgid "Facebook"
+msgstr "Facebook"
+
+#: .\volareApp\templates\base.html:66
+msgid "Llamanos ahora"
+msgstr "Call us now"
+
+#: .\volareApp\templates\index.html:129
+msgid "Llamanos"
+msgstr "Call us"
+
+
+msgid "España"
+msgstr "Spain"
+
+msgid "Francia"
+msgstr "France"
+
+msgid "Alemania"
+msgstr "Germany"
+
+msgid "Catar"
+msgstr "Qatar"
+
+
+msgid "Irlanda"
+msgstr "Ireland"
+
+msgid "Reino Unido"
+msgstr "United Kingdom"
