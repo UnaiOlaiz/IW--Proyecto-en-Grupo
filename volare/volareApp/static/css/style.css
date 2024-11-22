@@ -814,3 +814,48 @@ ul li {
 .social-icon:hover {
     transform: scale(1.1);
 }
+
+# css combobox cambiar idioma
+select[name="language"]{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ffffff;
+  border: 2px solid #c1c1c1;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333333;
+  cursor: pointer;
+  transition: all .3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='gray' d='M6 8l4 4 4-4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+select[name="language"]:hover {
+  border-color: #5A2C0F;
+  box-shadow: 0 0 5px #5A2C0F;
+}
+
+select[name="language"]:focus {
+  outline: none;
+  border-color: #5A2C0F;
+}
+
+button[type="submit"]{
+  background-color: #5A2C0F;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color .3 ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #5A2C0F;
+  transform: scale(.95);
+}
