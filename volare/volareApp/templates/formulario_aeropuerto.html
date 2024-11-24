@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 
-{% block titulo %}Nuevo Aeropuerto{% endblock %}
+{% block titulo %}
+    Nuevo Aeropuerto
+{% endblock %}
 
 {% block contenido %}
-    <h1>Agregar Nuevo Aeropuerto</h1>
-    <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
-
+    <div class="mover-derecha">
+        <h1>Agregar Nuevo Aeropuerto</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar</button>
+        </form>
+    </div>
 {% endblock %}

@@ -3,11 +3,13 @@
 {% block titulo %}Nuevo País{% endblock %}
 
 {% block contenido %}
+    <div class="mover-derecha">
+
     <h1>Agregar Nuevo País</h1>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Guardar</button>
 </form>
-
+</div>
 {% endblock %}

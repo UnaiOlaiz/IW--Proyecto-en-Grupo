@@ -859,3 +859,10 @@ button[type="submit"]:hover {
   background-color: #5A2C0F;
   transform: scale(.95);
 }
+
+
+
+.mover-derecha {
+    margin-left: 50px; 
+    padding-left: 20px; 
+}

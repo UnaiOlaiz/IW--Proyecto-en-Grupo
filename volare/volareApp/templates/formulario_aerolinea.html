@@ -3,11 +3,14 @@
 {% block titulo %}Nueva Aerolínea{% endblock %}
 
 {% block contenido %}
+    <div class="mover-derecha">
+
     <h1>Agregar Nueva Aerolínea</h1>
     <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Guardar</button>
 </form>
+</div>
 
 {% endblock %}
