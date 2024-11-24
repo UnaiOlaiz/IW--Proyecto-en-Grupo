@@ -44,7 +44,7 @@ msgid "Call us now"
 msgstr "Llamanos ahora"
 
 #: .\volareApp\templates\base.html:101
-msgid "All rights reserved. Lovingly designed by the Volare group"
+msgid "All rights reserved. Designed with care by Volare"
 msgstr "Todos los derechos reservados. Diseñado con cariño por el grupo Volare"
 
 #: .\volareApp\templates\index.html:3

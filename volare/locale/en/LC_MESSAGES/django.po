@@ -22,8 +22,8 @@ msgid "Cambiar idioma"
 msgstr "Change language"
 
 #: .\volareApp\templates\base.html:101
-msgid "© 2024 Todos los derechos reservados. Diseñado con cariño por el grupo Volare"
-msgstr "© 2024 All rights reserved. Designed with care by Volare"
+msgid "Todos los derechos reservados. Diseñado con cariño por el grupo Volare"
+msgstr "All rights reserved. Designed with care by Volare"
 
 #: .\volareApp\templates\base.html:57 .\volareApp\templates\base.html:86 .\volareApp\templates\base.html:106
 msgid "Inicio"
