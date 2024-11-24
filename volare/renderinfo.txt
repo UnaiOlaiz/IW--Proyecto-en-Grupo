@@ -1,0 +1,7 @@
+Página render para desplegar el proyecto volare:
+https://dashboard.render.com/web/srv-ct1mbj9u0jms73ch4j0g/deploys/dep-ct1mbjhu0jms73ch4j50
+
+Deploy de volare:
+https://volare.onrender.com
+
+No todas las fotos se desplegan (faltan las fotos de los logos de las aerolíneas)
