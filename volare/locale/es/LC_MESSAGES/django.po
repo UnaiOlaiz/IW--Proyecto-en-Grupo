@@ -183,3 +183,9 @@ msgstr "Irlanda"
 
 msgid "United Kingdom"
 msgstr "Reino Unido"
+
+
+
+#: .\volareApp\templates\base.html:110
+msgid "Forms"
+msgstr "Formularios"

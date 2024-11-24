@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block titulo %}Lista de Formularios{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4 title-style">Formularios disponibles</h2>
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-flush col-md-8">
+
+            <!-- Enlace para agregar una nueva aerolínea -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'formulario_aerolinea' %}" class="text-decoration-none text-dark">
+                    Crear nueva aerolínea
+                </a>
+            </li>
+
+            <!-- Enlace para agregar un nuevo país -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'formulario_pais' %}" class="text-decoration-none text-dark">
+                    Crear nuevo país
+                </a>
+            </li>
+
+            <!-- Enlace para agregar un nuevo aeropuerto -->
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'formulario_aeropuerto' %}" class="text-decoration-none text-dark">
+                    Crear nuevo aeropuerto
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+{% endblock %}

@@ -162,6 +162,12 @@ msgstr "Call us now"
 msgid "Llamanos"
 msgstr "Call us"
 
+#: .\volareApp\templates\base.html:110
+msgid "Formularios"
+msgstr "Forms"
+
+
+
 
 msgid "España"
 msgstr "Spain"

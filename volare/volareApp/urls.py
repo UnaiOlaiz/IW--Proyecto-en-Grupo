@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import AerolineaCreateView, PaisCreateView, AeropuertoCreateView
+
 
 urlpatterns = [
     path('', views.index, name='index'),    
@@ -8,8 +10,16 @@ urlpatterns = [
     path('aeropuertos/', views.index_Aeropuerto, name='index_aeropuerto'),     
     path('aeropuertos/<int:aeropuerto_id>/', views.show_Aeropuerto, name='show_aeropuerto'),    
     path('aerolineas/', views.index_Aerolineas, name='index_aerolineas'),   
-    path('aerolineas/<int:aerolinea_id>/', views.show_Aerolinea, name='show_aerolinea'),  
-]
+    path('aerolineas/<int:aerolinea_id>/', views.show_Aerolinea, name='show_aerolinea'),
 
+    path('aerolineas/nueva/', AerolineaCreateView.as_view(), name='formulario_aerolinea'),
+
+    path('paises/nuevo/', PaisCreateView.as_view(), name='formulario_pais'),
+    path('aeropuertos/nuevo/', AeropuertoCreateView.as_view(), name='formulario_aeropuerto'),   
+    
+    path('formulario/lista/', views.lista_formularios, name='lista_formularios'),
+
+    
+]
 
 
