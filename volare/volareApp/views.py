@@ -79,3 +79,7 @@ class AerolineaCreateView(CreateView):
 
 def lista_formularios(request):
     return render(request, 'lista_formulario.html')
+
+# Apartado Vue SPA
+def vue_spa(request):
+    return render(request, 'vue.html')

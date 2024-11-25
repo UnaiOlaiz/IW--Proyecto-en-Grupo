@@ -19,7 +19,8 @@ urlpatterns = [
     
     path('formulario/lista/', views.lista_formularios, name='lista_formularios'),
 
-    
+    # Vue
+    path('vue/', views.vue_spa, name="vue_spa"),
 ]
 
 
