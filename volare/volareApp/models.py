@@ -16,7 +16,7 @@ class Aeropuerto(models.Model):
     nombre = models.CharField(max_length=50)
     pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
     tlf = models.IntegerField()
-    imagen = models.ImageField(upload_to='img',blank=True,null=True,verbose_name='Image')
+    imagen = models.ImageField(upload_to='img/',blank=True,null=True,verbose_name='Image')
 
     
     def __str__(self):
@@ -30,7 +30,7 @@ class Aerolinea(models.Model):
     fundacion = models.DateField(null=True, blank=True)  
     descripcion = models.TextField(default='Sin descripción')
     flota = models.IntegerField(default=0)  
-    imagen = models.ImageField(upload_to='img/aerolineas',blank=True,null=True,verbose_name='Image')
+    imagen = models.ImageField(upload_to='img/',blank=True,null=True,verbose_name='Image')
 
     
     def __str__(self):

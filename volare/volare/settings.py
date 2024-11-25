@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8w+t=nbn%o5hhms-rd3j%
 # Nuestra secret key de default: 'django-insecure-8w+t=nbn%o5hhms-rd3j%5hu!a&b5=hqo_(6(gmw&qfway&sg^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['volare.onrender.com', '127.0.0.1', 'localhost']
 
@@ -116,11 +116,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATIC_URL = '/static/'
 
+
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'volareApp', 'static')]
+
 STATICFILES_DIRS = [
     BASE_DIR / "volareApp/static",
     BASE_DIR / "frontend/dist",
 ]
 
+#?
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
