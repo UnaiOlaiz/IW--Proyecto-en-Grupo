@@ -120,7 +120,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "volareApp/static",
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'static'
 
 
 MEDIA_URL = '/media/'
