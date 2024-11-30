@@ -815,7 +815,6 @@ ul li {
     transform: scale(1.1);
 }
 
-# css combobox cambiar idioma
 select[name="language"]{
   appearance: none;
   -webkit-appearance: none;
@@ -865,4 +864,10 @@ button[type="submit"]:hover {
 .mover-derecha {
     margin-left: 50px; 
     padding-left: 20px; 
+}
+
+.row {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
