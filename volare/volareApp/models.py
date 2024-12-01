@@ -7,7 +7,6 @@ class Pais(models.Model):
     imagen = models.ImageField(upload_to='img/banderas',blank=True,null=True,verbose_name='Image')
     descripcion = models.TextField(default='Sin descripción')
 
-
     def __str__(self):
         return self.nombre
     

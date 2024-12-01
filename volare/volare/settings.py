@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8w+t=nbn%o5hhms-rd3j%5hu!a&b5=hqo_(6(gmw&qfway&sg^')
 
+
 # Nuestra secret key de default: 'django-insecure-8w+t=nbn%o5hhms-rd3j%5hu!a&b5=hqo_(6(gmw&qfway&sg^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -122,11 +123,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "volareApp/static",
     BASE_DIR / "frontend/dist",
+    BASE_DIR / "static/admin/css",  # Ruta del CSS personalizado
 ]
 
 #?
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+#python manage.py collectstatic
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -163,3 +165,9 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # Parte de base de datos para ser configurado en render
 import dj_database_url
+
+
+# Cambiar el encabezado de la administración
+ADMIN_SITE_HEADER = 'Volare Administración'
+# Configuración del sistema de sesiones
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'

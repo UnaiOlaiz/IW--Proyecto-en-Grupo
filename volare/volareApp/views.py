@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import PaisForm, AeropuertoForm, AerolineaForm
 
+
 # obtiene aerolinea y pais
 #def index(request):
     # Obtener todos los países
