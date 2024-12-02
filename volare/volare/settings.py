@@ -117,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATIC_URL = '/static/'
 
-
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, 'volareApp', 'static')]
 
 STATICFILES_DIRS = [
@@ -132,8 +131,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 
 
 # Default primary key field type

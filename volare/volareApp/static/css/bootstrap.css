@@ -198,6 +198,14 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+  max-width: 200px;
+}
+
+img.airline-image {
+  max-width: 200px;    /* Establece el máximo ancho de la imagen a 200px */
+  height: auto;        /* Mantiene la proporción de la imagen */
+  display: block;      /* Evita cualquier espacio debajo de la imagen */
+  margin: 0 auto;      /* Centra la imagen horizontalmente si es necesario */
 }
 
 svg {
@@ -480,6 +488,11 @@ mark,
   max-width: 100%;
   height: auto;
 }
+
+
+
+
+
 
 .img-thumbnail {
   padding: 0.25rem;

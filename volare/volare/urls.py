@@ -32,7 +32,6 @@ urlpatterns += i18n_patterns(
     path('', include('volareApp.urls')),
 )
 
-# Solo agregamos esta parte si estás en modo de desarrollo y usas archivos estáticos y de medios.
+
 if settings.DEBUG:  # Archivos media en desarrollo
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

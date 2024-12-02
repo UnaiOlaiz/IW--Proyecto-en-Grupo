@@ -815,8 +815,8 @@ ul li {
     transform: scale(1.1);
 }
 
-# css combobox cambiar idioma
-select[name="language"]{
+/* css combo cambiar idioma*/
+select[name="language"]{        
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -866,3 +866,11 @@ button[type="submit"]:hover {
     margin-left: 50px; 
     padding-left: 20px; 
 }
+
+img.airline-image {
+  max-width: 200px;    /* Establece el máximo ancho de la imagen a 200px */
+  height: auto;        /* Mantiene la proporción de la imagen */
+  display: block;      /* Evita cualquier espacio debajo de la imagen */
+  margin: 0 auto;      /* Centra la imagen horizontalmente si es necesario */
+}
+
