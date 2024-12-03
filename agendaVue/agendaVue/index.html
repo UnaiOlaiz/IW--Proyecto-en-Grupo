@@ -221,7 +221,7 @@
 <script type="module">
 
  import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.esm-browser.js';
-  import { getFirestore, collection, getDocs, addDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+  import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
   import { db } from './js/firebase.js'; 
 
     const app = createApp({
@@ -260,12 +260,21 @@
         },
 
         // Eliminar contacto (si lo necesitas)
-        async deleteContact(index) {
-          const contactId = this.contacts[index].id;
-          // Aquí puedes agregar la lógica para eliminar el contacto desde Firestore
-          // Por ejemplo, utilizando `deleteDoc()` si necesitas eliminarlo de Firestore
-          this.contacts.splice(index, 1);  // Eliminar el contacto de la lista local
-        }
+       async deleteContact(index) {
+  const contactId = this.contacts[index].id;
+  
+  try {
+    // Eliminar el contacto de Firestore
+    const contactRef = doc(db, "contacts", contactId);
+    await deleteDoc(contactRef);
+    
+    // Eliminar el contacto de la lista local
+    this.contacts.splice(index, 1);
+  } catch (error) {
+    console.error("Error deleting document: ", error);
+  }
+}
+
       },
     });
 	
