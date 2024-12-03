@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Agenda">
+    <meta name="author" content="e-ghost 2019">
+
+    <title>AgendaVue</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Cambiar navegación</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">AgendaVue</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contactos">Contactos</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#nuevo">Añadir contacto</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Acerca de...</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Vue App Container -->
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-text">
+                            <span class="name">AgendaVue</span>
+                            <hr class="star-light">
+                            <span class="skills">Agenda básica en Vue</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contactos Section -->
+        <section id="contactos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Contactos</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div v-if="contacts.length > 0">
+                    <div class="row" v-for="(contact, index) in contacts" :key="index">
+                        <div class="col-xs-4"><p>{{ contact.name }}</p></div>
+                        <div class="col-xs-4"><p>{{ contact.email }}</p></div>
+                        <div class="col-xs-3"><p>{{ contact.phone }}</p></div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-danger btn-sm" @click="deleteContact(index)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <p class="text-center">No se ha encontrado ningún contacto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Añadir Contacto Section -->
+        <section id="nuevo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Añadir contacto</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <form @submit.prevent="addContact">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" v-model="newContact.name" placeholder="Nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" v-model="newContact.email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="tel" class="form-control" v-model="newContact.phone" placeholder="Teléfono" required>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg">Añadir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Acerca de...</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>AgendaVue es un proyecto simple en VueJS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyleft &copy; e-ghost 2019
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+    
+    <!-- Vue -->
+    <script src="js/vue.js"></script>   
+
+
+    <!-- Vue App -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contacts: [
+                    { name: 'John Doe', email: 'john.doe@deusto.es', phone: '555555555' },
+                    { name: 'Jane Smith', email: 'jane.smith@example.com', phone: '123456789' }
+                ],
+                newContact: { name: '', email: '', phone: '' }
+            },
+            methods: {
+                addContact() {
+                    if (this.newContact.name && this.newContact.email && this.newContact.phone) {
+                        this.contacts.push({ ...this.newContact });
+                        this.newContact = { name: '', email: '', phone: '' };
+                    } else {
+                        alert("Por favor, completa todos los campos.");
+                    }
+                },
+                deleteContact(index) {
+                    this.contacts.splice(index, 1);
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
