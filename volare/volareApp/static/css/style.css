@@ -874,3 +874,16 @@ img.airline-image {
   margin: 0 auto;      /* Centra la imagen horizontalmente si es necesario */
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  width: 200px;
+  max-width: 100%;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
