@@ -9,6 +9,12 @@
 
     <title>AgendaVue</title>
 
+
+
+
+
+
+
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -19,6 +25,13 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+     
+
+
+
+
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -200,36 +213,68 @@
     <script src="js/freelancer.js"></script>
     
     <!-- Vue -->
-    <script src="js/vue.js"></script>   
 
 
-    <!-- Vue App -->
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-                contacts: [
-                    { name: 'John Doe', email: 'john.doe@deusto.es', phone: '555555555' },
-                    { name: 'Jane Smith', email: 'jane.smith@example.com', phone: '123456789' }
-                ],
-                newContact: { name: '', email: '', phone: '' }
-            },
-            methods: {
-                addContact() {
-                    if (this.newContact.name && this.newContact.email && this.newContact.phone) {
-                        this.contacts.push({ ...this.newContact });
-                        this.newContact = { name: '', email: '', phone: '' };
-                    } else {
-                        alert("Por favor, completa todos los campos.");
-                    }
-                },
-                deleteContact(index) {
-                    this.contacts.splice(index, 1);
-                }
+
+
+  <!-- Vue App -->
+<script type="module">
+
+ import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3.2.47/dist/vue.esm-browser.js';
+  import { getFirestore, collection, getDocs, addDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js';
+  import { db } from './js/firebase.js'; 
+
+    const app = createApp({
+      data() {
+        return {
+          contacts: [],
+          newContact: { name: '', email: '', phone: '' },
+        };
+      },
+      async mounted() {
+        await this.fetchContacts();  // Cargar contactos al montar el componente
+      },
+      methods: {
+        // Recuperar contactos de Firestore
+        async fetchContacts() {
+          const querySnapshot = await getDocs(collection(db, "contacts"));
+          this.contacts = querySnapshot.docs.map(doc => ({
+            id: doc.id,  // Añadir el ID del documento
+            ...doc.data(),  // Los datos del contacto
+          }));
+        },
+
+        // Agregar contacto a Firestore
+        async addContact() {
+          if (this.newContact.name && this.newContact.email && this.newContact.phone) {
+            try {
+              const docRef = await addDoc(collection(db, "contacts"), this.newContact);
+              this.contacts.push({ id: docRef.id, ...this.newContact });  // Añadir el nuevo contacto a la lista local
+              this.newContact = { name: '', email: '', phone: '' };  // Limpiar los campos del formulario
+            } catch (error) {
+              console.error("Error adding document: ", error);
             }
-        });
-    </script>
+          } else {
+            alert("Por favor, completa todos los campos.");
+          }
+        },
+
+        // Eliminar contacto (si lo necesitas)
+        async deleteContact(index) {
+          const contactId = this.contacts[index].id;
+          // Aquí puedes agregar la lógica para eliminar el contacto desde Firestore
+          // Por ejemplo, utilizando `deleteDoc()` si necesitas eliminarlo de Firestore
+          this.contacts.splice(index, 1);  // Eliminar el contacto de la lista local
+        }
+      },
+    });
+	
+
+
+
+    app.mount('#app');
+</script>
 
 </body>
-
 </html>
+
