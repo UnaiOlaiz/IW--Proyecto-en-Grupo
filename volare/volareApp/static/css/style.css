@@ -259,6 +259,16 @@ body {
           box-shadow: none;
 }
 
+#search-form {
+  transition: all 0.3s ease-in-out;
+}
+#search-form.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+
 /*end header section*/
 .slider_section {
   background-image: url(../images/slider-bg.jpg);

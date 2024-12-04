@@ -44,6 +44,9 @@ urlpatterns = [
     # Página de lista de formularios (sin cambios)
     path('formulario/lista/', views.lista_formularios, name='lista_formularios'),
 
+    # API para obtener aerolíneas de un país (AJAX)
+    path('api/country/<int:country_id>/airlines/', views.get_country_airlines, name='get_country_airlines'),
+
     # Vue SPA (sin cambios)
     path('vue/', views.vue_spa, name="vue_spa"),
 ]

@@ -99,3 +99,38 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     })
 })
+
+document.querySelector('#toggle-search').addEventListener('click', () => {
+    const form = document.querySelector('#search-form');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+});
+
+document.querySelector('#search-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const destination = document.querySelector('#destination').value;
+    fetch(`/api/search?destination=${destination}`)
+        .then(response => response.json())
+        .then(data => {
+            const results = document.querySelector('#results');
+            results.innerHTML = data.map(item => `<p>${item.name}</p>`).join('');
+        });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const countryLinks = document.querySelectorAll(".country-name");
+
+    countryLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const countryId = this.dataset.countryId; // Asegúrate de que cada enlace tenga un data-country-id
+            
+            fetch(`/api/country/${countryId}/airlines/`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Actualiza el DOM dinámicamente con los datos recibidos
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    });
+});
