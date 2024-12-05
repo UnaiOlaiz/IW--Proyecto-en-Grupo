@@ -134,3 +134,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.querySelector('#toggle-search');
+    const searchForm = document.querySelector('#search-form');
+    const searchResults = document.querySelector('#search-results');
+
+    if (toggleButton && searchForm) {
+        toggleButton.addEventListener('click', () => {
+            searchForm.style.display = searchForm.style.display === 'none' ? 'block' : 'none';
+        });
+    }
+
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const query = document.querySelector('#search-input').value;
+
+            fetch(`/api/search?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    searchResults.innerHTML = data.map(item => `<p>${item.name}</p>`).join('');
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    searchResults.innerHTML = '<p>Error al realizar la búsqueda</p>';
+                });
+        });
+    }
+});

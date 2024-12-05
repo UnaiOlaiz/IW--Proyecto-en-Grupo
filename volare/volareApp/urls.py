@@ -47,6 +47,9 @@ urlpatterns = [
     # API para obtener aerolíneas de un país (AJAX)
     path('api/country/<int:country_id>/airlines/', views.get_country_airlines, name='get_country_airlines'),
 
+    # Vista de búsqueda dinámica (nueva ruta)
+    path('api/search/', views.buscar, name='buscar'),
+
     # Vue SPA (sin cambios)
     path('vue/', views.vue_spa, name="vue_spa"),
 ]

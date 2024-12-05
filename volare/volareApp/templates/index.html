@@ -70,24 +70,6 @@
         </div>
     </section>
 
-    <!-- Formulario de búsqueda -->
-    <section class="search_section">
-        <button id="toggle-search" class="btn btn-primary">
-            {% trans "Mostrar/Ocultar Búsqueda" %}
-        </button>
-        <form id="search-form" style="display: none;" class="form-inline">
-            <input 
-                type="text" 
-                id="search-input" 
-                class="form-control mr-sm-2" 
-                placeholder="{% trans 'Busca países, aeropuertos o aerolíneas' %}">
-            <button type="submit" class="btn btn-success">
-                {% trans "Buscar" %}
-            </button>
-        </form>
-        <div id="search-results" class="search-results"></div>
-    </section>
-
     <br><br>
     <h2>{% trans "Paises con sus aerolíneas más importantes" %}</h2>
 
@@ -163,8 +145,4 @@
         </div>
     </section>
 
-{% endblock %}
-
-{% block extra_js %}
-    <script src="{% static 'js/custom.js' %}"></script>
 {% endblock %}

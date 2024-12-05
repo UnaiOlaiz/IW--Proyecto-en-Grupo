@@ -129,3 +129,23 @@ def lista_formularios(request):
 # Apartado Vue SPA
 def vue_spa(request):
     return render(request, 'vue.html')
+
+# Vista de búsqueda dinámica
+def buscar(request):
+    query = request.GET.get('query', '')
+    results = []
+
+    if query:
+        # Buscar en países
+        paises = Pais.objects.filter(nombre__icontains=query)
+        results.extend([{'name': pais.nombre, 'type': 'pais'} for pais in paises])
+
+        # Buscar en aerolíneas
+        aerolineas = Aerolinea.objects.filter(nombre__icontains=query)
+        results.extend([{'name': aerolinea.nombre, 'type': 'aerolinea'} for aerolinea in aerolineas])
+
+        # Buscar en aeropuertos
+        aeropuertos = Aeropuerto.objects.filter(nombre__icontains=query)
+        results.extend([{'name': aeropuerto.nombre, 'type': 'aeropuerto'} for aeropuerto in aeropuertos])
+
+    return JsonResponse(results, safe=False)

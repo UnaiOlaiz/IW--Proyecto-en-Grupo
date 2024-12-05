@@ -26,35 +26,33 @@
 
 <body>
   <header class="header_section">
-  
-  
-  
-<form action="{% url 'set_language' %}" method="post">
-    {% csrf_token %}
-    <select name="language">
-        <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
-        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-    </select>
-    <button type="submit">{% trans "Cambiar idioma" %}</button>
-</form>
+    <!-- Formulario de cambio de idioma -->
+    <form action="{% url 'set_language' %}" method="post" style="display: inline-block; margin-right: 20px;">
+        {% csrf_token %}
+        <select name="language">
+            <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+        </select>
+        <button type="submit">{% trans "Cambiar idioma" %}</button>
+    </form>
 
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+    <!-- Búsqueda dinámica -->
+    <div class="search_section" style="display: inline-block;">
+        <button id="toggle-search" class="btn btn-primary">
+            {% trans "Buscar" %}
+        </button>
+        <form id="search-form" style="display: none; margin-left: 20px;" class="form-inline">
+            <input 
+                type="text" 
+                id="search-input" 
+                class="form-control mr-sm-2" 
+                placeholder="{% trans 'Busca países, aeropuertos o aerolíneas' %}">
+            <button type="submit" class="btn btn-success">
+                {% trans "Buscar" %}
+            </button>
+        </form>
+        <div id="search-results" class="search-results"></div>
+    </div>
 
     <!-- Menú de navegación -->
     <nav class="navbar navbar-expand-lg custom_nav-container">
@@ -108,8 +106,6 @@
             <a href="{% url 'index_aerolineas' %}">{% trans "Aerolineas" %}</a>
             <a href="{% url 'index_aeropuerto' %}">{% trans "Aeropuertos" %}</a>
 			<a href="{% url 'lista_formularios' %}">{% trans "Formularios" %}</a>
-
-			
           </div>
         </div>
       </div>
@@ -122,6 +118,6 @@
 <script src="{% static 'js/custom.js' %}"></script>
 <!-- Google Map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
-  
+
 </body>
 </html>
