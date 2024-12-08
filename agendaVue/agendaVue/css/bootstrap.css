@@ -14,6 +14,20 @@ html {
 body {
   margin: 0;
 }
+
+/* botones sociales */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 20px;
+}
+
+.social-buttons a {
+  margin: 0 10px;
+}
+
+
 article,
 aside,
 details,

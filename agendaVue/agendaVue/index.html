@@ -7,12 +7,35 @@
     <meta name="description" content="Agenda">
     <meta name="author" content="e-ghost 2019">
 
+
+        <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AgendaVue">
+    <meta name="twitter:description" content="Agenda básica desarrollada con VueJS.">
+    <meta name="twitter:image" content="https://volarevuespa.netlify.app/img/portfolio/submarine.png">
+
+    <!-- Open Graph data para Facebook -->
+    <meta property="og:title" content="AgendaVue">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://volarevuespa.netlify.app/">
+    <meta property="og:image" content="https://volarevuespa.netlify.app/img/portfolio/cake.png">
+    <meta property="og:description" content="Agenda básica desarrollada con VueJS.">
+    <meta property="og:site_name" content="AgendaVue">
+
+
     <title>AgendaVue</title>
 
 
-
-
-
+    <!-- JSON-LD para datos estructurados -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Juan Pérez",
+            "email": "juan.perez@example.com",
+            "telephone": "+34 123 456 789"
+        }
+    </script>
 
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -26,11 +49,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
      
-
-
-
-
-
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -100,7 +118,21 @@
 
         <!-- Contactos Section -->
         <section id="contactos">
-            <div class="container">
+            <div class="container">                    
+                    <div class="social-buttons">
+                        <!-- Facebook Like and Share buttons -->
+                        <div class="fb-like" data-href="https://volarevuespa.netlify.app/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+                        <div class="fb-share-button" data-href="https://volarevuespa.netlify.app/" data-layout="button_count"></div>
+                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0"></script>
+
+                        <!-- Twitter Share Button -->
+                        <a href="https://twitter.com/share" class="twitter-share-button custom-twitter-btn" data-text="¡Mira este contenido!" data-url="https://volarevuespa.netlify.app/" data-via="tu_usuario_de_twitter" data-related="tu_usuario_de_twitter">Twittear</a>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+            
+                    <!-- Facebook Comments -->
+                    <div class="fb-comments" data-href="https://volarevuespa.netlify.app/" data-width="100%" data-numposts="5"></div>
+
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2>Contactos</h2>
@@ -108,7 +140,8 @@
                     </div>
                 </div>
                 <div v-if="contacts.length > 0">
-                    <div class="row" v-for="(contact, index) in contacts" :key="index">
+                    <!-- Microdata (itemscope)-->
+                    <div class="row" v-for="(contact, index) in contacts" :key="index" itemscope itemtype="http://schema.org/Person">
                         <div class="col-xs-4"><p>{{ contact.name }}</p></div>
                         <div class="col-xs-4"><p>{{ contact.email }}</p></div>
                         <div class="col-xs-3"><p>{{ contact.phone }}</p></div>
@@ -126,7 +159,8 @@
         </section>
 
         <!-- Añadir Contacto Section -->
-        <section id="nuevo">
+        <!-- con RDFa -->
+        <section id="nuevo" vocab="http://schema.org/" typeof="Person">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
@@ -138,16 +172,16 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <form @submit.prevent="addContact">
                             <div class="form-group">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" v-model="newContact.name" placeholder="Nombre" required>
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" class="form-control" v-model="newContact.name" placeholder="Nombre" property="name" required>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" v-model="newContact.email" placeholder="Email" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" v-model="newContact.email" placeholder="Email" property="email" required>
                             </div>
                             <div class="form-group">
-                                <label>Teléfono</label>
-                                <input type="tel" class="form-control" v-model="newContact.phone" placeholder="Teléfono" required>
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" class="form-control" v-model="newContact.phone" placeholder="Teléfono" property="telephone" required>
                             </div>
                             <button type="submit" class="btn btn-success btn-lg">Añadir</button>
                         </form>
@@ -259,30 +293,29 @@
           }
         },
 
-        // Eliminar contacto (si lo necesitas)
+        // Eliminar contacto 
        async deleteContact(index) {
-  const contactId = this.contacts[index].id;
-  
-  try {
-    // Eliminar el contacto de Firestore
-    const contactRef = doc(db, "contacts", contactId);
-    await deleteDoc(contactRef);
-    
-    // Eliminar el contacto de la lista local
-    this.contacts.splice(index, 1);
-  } catch (error) {
-    console.error("Error deleting document: ", error);
-  }
-}
+        const contactId = this.contacts[index].id;
+        
+        try {
+            // Eliminar el contacto de Firestore
+            const contactRef = doc(db, "contacts", contactId);
+            await deleteDoc(contactRef);
+            
+            // Eliminar el contacto de la lista local
+            this.contacts.splice(index, 1);
+        } catch (error) {
+            console.error("Error deleting document: ", error);
+        }
+        }
 
       },
     });
-	
-
 
 
     app.mount('#app');
 </script>
+
 
 </body>
 </html>
