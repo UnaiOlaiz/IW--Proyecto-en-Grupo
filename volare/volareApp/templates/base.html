@@ -27,7 +27,7 @@
 <body>
   <header class="header_section">
     <!-- Formulario de cambio de idioma -->
-    <form action="{% url 'set_language' %}" method="post" style="display: inline-block; margin-right: 20px;">
+    <form action="{% url 'set_language' %}" method="post">
         {% csrf_token %}
         <select name="language">
             <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>

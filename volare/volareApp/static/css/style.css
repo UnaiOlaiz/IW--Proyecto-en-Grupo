@@ -912,3 +912,8 @@ img.airline-image {
   color: #85310c;
 }
 
+/*Lo que he quitado de base.html*/
+form[action = "{% url 'set_language' %}"]{
+  display: inline-block;
+  margin-right: 20px;
+}
