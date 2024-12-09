@@ -7,10 +7,43 @@
 
     <h1>Agregar Nueva Aerolínea</h1>
     <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
+        {% csrf_token %}
+        <div>
+            <label for="id_nombre">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div>
+            <label for="id_pais">País:</label>
+            {{ form.pais }}
+        </div>
+        <div>
+            <label>Aeropuertos:</label> <!-- Eliminado el atributo for -->
+            <div>
+                {{ form.aeropuertos }}
+            </div>
+        </div>
+        <div>
+            <label for="id_tlf">Teléfono:</label>
+            {{ form.tlf }}
+        </div>
+        <div>
+            <label for="id_fundacion">Fundación:</label>
+            {{ form.fundacion }}
+        </div>
+        <div>
+            <label for="id_descripcion">Descripción:</label>
+            {{ form.descripcion }}
+        </div>
+        <div>
+            <label for="id_flota">Flota:</label>
+            {{ form.flota }}
+        </div>
+        <div>
+            <label for="id_imagen">Imagen:</label>
+            {{ form.imagen }}
+        </div>
+        <button type="submit">Guardar</button>
+    </form>  
 </div>
 
 {% endblock %}
